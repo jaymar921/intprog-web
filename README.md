@@ -8,7 +8,9 @@
 ## Category: 
 > Home and Living
 # Database [intprog_haus]
-> cmd_command: create database intprog_haus;
+```sql
+cmd_command: create database intprog_haus;
+```
 # [Tables]
 ## Users
 ```sql
