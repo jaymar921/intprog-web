@@ -11,7 +11,7 @@
 			position: fixed;
 			width: 100vw;
 			height: 100vh;
-			background-image:url("m.jpg");
+			background-image:url("static/images/m.jpg");
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-size: cover;
@@ -118,18 +118,18 @@
 
 
 
-<form action="" method="post";">
+<form action="/login_account" method="POST">
 
 	<div class="imgcontainer">
-	<img src='living.png' alt="Image" height="90" width="150">
+	<img src='static/images/living.png' alt="Image" height="90" width="150">
 	<h2></h2>
-	<img src="icon.jpg" alt="" class="avatar">
+	<img src="static/images/icon.jpg" alt="" class="avatar">
 	
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>

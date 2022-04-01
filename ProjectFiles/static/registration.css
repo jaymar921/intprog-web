@@ -1,0 +1,79 @@
+div
+{
+	margin: auto; 
+	margin-top: 3%; 
+	width: 30%; 
+	padding: 10px; 
+	animation-name: example;
+  	animation-duration: 4s;
+}
+
+img
+{
+	width: 40%;
+	margin-left: 30%;
+}
+body
+{
+	background-image: url("images/2.jpg");
+	font-family: 'Arial';
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+form
+{
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.8);
+	box-shadow: 0 0 30px rgb(0, 0, 0);
+	align-content: center;
+	margin-left:5px;
+	animation-name: example;
+  animation-duration: 4s;
+}
+h2
+{
+	text-align: center;
+	color: white;
+}
+input
+{
+	font-size: 16px;
+}
+p
+{
+	font-size: 16px;
+	color: white;
+	text-align: center;
+}
+
+a
+{
+	font-size: 16px;
+	color: white;
+	text-align: center;
+}
+a:hover
+{
+	color: lightgreen;
+}
+
+button
+{
+	font-size: 16px; 
+	padding: 15px; 
+	background-color: sandybrown; 
+	width: 30%;  
+	border-radius: 10px;
+	margin-left: 35%;
+}
+button:hover 
+{
+	background-color: lightgreen;	
+}
+button:active {
+  background-color: lightgreen ;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

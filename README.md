@@ -11,7 +11,12 @@
 > cmd_command: create database intprog_haus;
 # [Tables]
 ## Users
-> cmd_command: create table users(ID int(10) not null, Email varchar(50) not null, Password varchar(50) not null, primary key(ID)) engine = innodb;
+```sql
+create table users(id int primary key, lastname varchar(50) not null, firstname varchar(50) not null, email varchar(50) not null, contact varchar(11) not null, password varchar(32) not null) engine = innodb;
+```
 - ID (int 10) primary key
+- Lastname (varchar 50)
+- Firstname (varchar 50)
 - Email (varchar 50)
-- Password (varchar 50) - Hashed (MD5)
+- Contact (varchar 11)
+- Password (varchar 32) - Hashed (MD5)
