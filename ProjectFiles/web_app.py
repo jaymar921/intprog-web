@@ -21,7 +21,7 @@ def login():
 @app.route("/login_account", methods=['POST'])
 def loginAccount():
     if getAccount(request.form["email"], hashString(request.form["psw"])):
-        return redirect(url_for("landing_page"))
+        return render_template("LandingPage.html", account=request.form["email"])
     else:
         return "invalid"
 
@@ -29,12 +29,14 @@ def loginAccount():
 # calls the registration.html
 @app.route("/register")
 def register():
-    return render_template("registration.html")
+    return render_template("registration.html", remark="")
 
 
 # retrieves the data from registration form
 @app.route("/register_account", methods=["POST"])
 def registerAccount():
+    if "deny" in request.form['flag']:
+        return render_template("registration.html", remark="Password Mismatch!")
     data: dict = {
         "lastname": request.form['lastname'],
         "firstname": request.form['firstname'],

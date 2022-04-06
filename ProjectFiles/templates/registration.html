@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<form id="registration_form" method = "POST" action = "/register_account">
+		<form id="registration_form" method="post" action="/register_account">
 			<img src ="static/images/1.png">
 			<h2>Registration</h2>
 			<br/>
@@ -32,7 +32,11 @@
 			<input id="confirm" type="password" name="confirm" placeholder="&#128274; ********" required>
 			</p>
 			<br/>
-			<button type ="submit" name = "register" value = "register" onclick="confirm_password(document.getElementById('password'),document.getElementById('confirm'))">Register</button>
+			{% if remark != "" %}
+			<p style="color:red">{{remark}}</p>
+			{% endif %}
+			<input id="flag" name="flag" type="text" hidden value="proceed">
+			<button type="submit" name = "register" value = "register" onclick="confirm_password(document.getElementById('password').value,document.getElementById('confirm').value)">Register</button>
 			<p><a href="/">Cancel</a></p>
 		</form>
 	</div>

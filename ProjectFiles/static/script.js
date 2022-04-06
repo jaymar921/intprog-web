@@ -1,8 +1,10 @@
 function confirm_password(password, confirm_password){
-    if(password == confirm_password){}
+    if(password== confirm_password){
         postFunction();
+        location.href="/login";
     }else{
         window.alert("password doesn't match!");
+        document.getElementById("flag").value = "deny";
     }
 }
 
