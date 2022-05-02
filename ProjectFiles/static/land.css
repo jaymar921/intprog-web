@@ -74,7 +74,7 @@ body {
 
 
 .banner {
-    background: url('images/backg.png') no-repeat;
+    background: url('images/LandingPage/backg.png') no-repeat;
     height: 800px;
     background-attachment: fixed;
     background-size: cover;
@@ -210,7 +210,7 @@ input {
     margin-top: 10px;
 }
 .about{
-    background: url('images/about.png') no-repeat;
+    background: url('images/LandingPage/about.png') no-repeat;
     height: 800px;
     width: 100%;
     background-size: cover;
