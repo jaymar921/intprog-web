@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Laundry Bags</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='listing.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="top-nav">
+            <div>
+              <a href="{{ url_for('home') }}"><img src="static/images/LandingPage/1a.png" class="logo"></a>
+            </div>
+            <div style="margin-left: 100px; margin-right: 100px;">
+              <form>
+                <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="70" />
+                <button type="submit" style="border: none; padding: 10px; width: 50px; background-color: #f9f9f9; cursor: pointer;"><i class='fa fa-search'></i></button>
+              </form>
+            </div>
+            <div class="w3-container" style="float: right;  width: 15%;">
+
+              <i class="fa-regular fa-heart fa-2x" style="margin-right: 40px; cursor: pointer;"></i>
+              <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 40px;"></i>
+                <div class="dropdown" >
+                    <i class="fa fa-user fa-2x"  style="cursor: pointer;"></i>
+                <div class="dropdown-content">
+                    <a href="login">Login</a>
+                    <a href="register">Signup</a>
+                </div>
+                {% if account != "" %}
+                    <a style="font-size:0.8em;">{{account}}</a>
+                {% endif %}
+            </div>
+            </div>
+          </div>
+        <div class="categories">
+            <ul class="catg-line">
+                <li><a href="{{ url_for('bath') }}">Bath</a></li>
+                <li><a href="{{ url_for('bedding') }}">Bedding</a></li>
+                <li><a href="{{ url_for('furniture') }}">Furniture</a></li>
+                <li><a href="{{ url_for('storage') }}">Storage & Organization</a></li>
+                <li><a href="{{ url_for('laundry_cleaning') }}">Laundry & Cleaning Equipment</a></li>
+                <li><a href="{{ url_for('kitchen_dining') }}">Kitchen & Dining</a></li>
+                <li><a href="{{ url_for('lighting') }}">Lighting</a></li>
+                <li><a href="{{ url_for('decor') }}">Home Decor</a></li>
+                <li><a href="{{ url_for('outdoor_garden') }}">Outdoor & Garden</a></li>
+                <li><a href="{{ url_for('stationary_craft') }}">Stationery & Craft</a></li>
+                <li><a href="{{ url_for('tools_home') }}">Tools & Home Improvement</a></li>
+              </ul>
+        </div>
+
+        <div class="breadcrumb">
+                <ul class="addressLink">
+                    <li>
+                        <a href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('laundry_cleaning') }}">Laundry and Cleaning Equipment</a>
+                    </li>
+                    <li>
+                        <a href="#" style="text-decoration: underline; color: green;">Laundry Bags</a>
+                    </li>
+                </ul>
+        </div>
+
+        <div class="category">
+            <div class="category-container">
+
+              <!--FIRST ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Laundry & Cleaning Equipment/Laundry Baskets & Hampers/basket1.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Handy Laundry Collapsible Mesh Foldable Hamper 14" x 14' x 24" Navy Blue
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    1.2k sold
+                  </div>
+                </div>
+              </div>
+
+              <!--SECOND ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Laundry & Cleaning Equipment/Laundry Baskets & Hampers/basket2.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>SimpleHouseware Heavy-Duty 3-Bag Laundry Sorter Cart, Silver
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    1.2k sold
+                  </div>
+                </div>
+              </div>
+
+              <!--THIRD ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Laundry & Cleaning Equipment/Laundry Baskets & Hampers/basket3.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Amazon Basics Fabric Storage Bin Basket - Tall Cube, Dusty Pink
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    1.2k sold
+                  </div>
+
+                </div>
+              </div>
+
+              <!--FOURTH ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Laundry & Cleaning Equipment/Laundry Baskets & Hampers/basket4.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Household Essentials 7172 Rolling Laundry Hamper with Heavy-Duty Canvas Bag
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    1.2k sold
+                  </div>
+                </div>
+              </div>
+
+              <!--FIFTH ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Laundry & Cleaning Equipment/Laundry Baskets & Hampers/basket5.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Honey-Can-Do Bamboo Wicker Corner Hamper 24-Inches Tall
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    1.2k sold
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+        </div>
+        <br><br><br>
+        <hr>
+        <!--RELATED CATEGORIES-->
+        <section class="related-cat">
+        <p style="padding-left: 20px; font-size: 20px; font-weight: bold;">Related Categories</p>
+
+          <div class="other">
+
+             <!--related cat 1-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('ironingtools') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Laundry & Cleaning Equipment/Ironing Boards/board1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Ironing Boards</p>
+              </div>
+            </div>
+
+            <!--related cat 2-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('ironingboard') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Laundry & Cleaning Equipment/Iron/iron1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Iron</p>
+              </div>
+            </div>
+
+            <!--related cat 3-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('clothes') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Laundry & Cleaning Equipment/Clothes Hangers & Pegs/hanger_pegs1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Clothes Hangers & Pegs</p>
+              </div>
+            </div>
+
+            <!--related cat 4-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('clothelines') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Laundry & Cleaning Equipment/Clothes Line & Drying Racks/rack1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Clothes Line & Drying Racks</p>
+              </div>
+            </div>
+
+            <!--related cat 5-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('washballs') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Laundry & Cleaning Equipment/Wash Balls/washball1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Wash Balls</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <hr>
+        <div class="footer">
+          <br>
+          <table>
+            <tr>
+              <th>News and Info</th>
+              <th colspan="2">Top Brands and Pages</th>
+              <th colspan="2" style="width: 30%;">Contacts</th>
+            </tr>
+            <tr>
+              <td>Products</td>
+              <td>Ikea</td>
+              <td>Mandaue Foam</td>
+              <td>Email</td>
+              <td style="text-align: left; color:blue;">haus_service@email.com</td>
+            </tr>
+            <tr>
+              <td>Guarantees</td>
+              <td>Uratex</td>
+              <td>Firefly</td>
+              <td>Phone</td>
+              <td style="text-align: left; color:blue;">+63 9123 456 789</td>
+            </tr>
+            <tr>
+              <td>New Products</td>
+              <td>Wilton</td>
+              <td>Dewalt</td>
+              <td>Address</td>
+              <td style="text-align: left; color:blue;">HAUS Corp. Cebu City 6000, Philippines</td>
+            </tr>
+            <tr>
+              <td>Wholesale</td>
+              <td>Cofta</td>
+              <td>Bosch</td>
+            </tr>
+            <tr>
+              <td>Customer Service</td>
+              <td>Stanley</td>
+              <td>Philflex</td>
+            </tr>
+
+          </table>
+          <br>
+        Copyright &copy; HAUS Home & Living, 2022. The HAUS is not responsible for contents of external sites
+        </div>
+    </body>
+</html>

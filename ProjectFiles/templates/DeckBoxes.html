@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Deck Boxes & Balcony Storage</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='listing.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="top-nav">
+            <div>
+              <a href="{{ url_for('home') }}"><img src="static/images/LandingPage/1a.png" class="logo"></a>
+            </div>
+            <div style="margin-left: 100px; margin-right: 100px;">
+              <form>
+                <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="70" />
+                <button type="submit" style="border: none; padding: 10px; width: 50px; background-color: #f9f9f9; cursor: pointer;"><i class='fa fa-search'></i></button>
+              </form>
+            </div>
+            <div class="w3-container" style="float: right;  width: 15%;">
+
+              <i class="fa-regular fa-heart fa-2x" style="margin-right: 40px; cursor: pointer;"></i>
+              <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 40px;"></i>
+                <div class="dropdown" >
+                    <i class="fa fa-user fa-2x"  style="cursor: pointer;"></i>
+                <div class="dropdown-content">
+                    <a href="login">Login</a>
+                    <a href="register">Signup</a>
+                </div>
+                {% if account != "" %}
+                    <a style="font-size:0.8em;">{{account}}</a>
+                {% endif %}
+            </div>
+            </div>
+          </div>
+        <div class="categories">
+            <ul class="catg-line">
+                <li><a href="{{ url_for('bath') }}">Bath</a></li>
+                <li><a href="{{ url_for('bedding') }}">Bedding</a></li>
+                <li><a href="{{ url_for('furniture') }}">Furniture</a></li>
+                <li><a href="{{ url_for('storage') }}">Storage & Organization</a></li>
+                <li><a href="{{ url_for('laundry_cleaning') }}">Laundry & Cleaning Equipment</a></li>
+                <li><a href="{{ url_for('kitchen_dining') }}">Kitchen & Dining</a></li>
+                <li><a href="{{ url_for('lighting') }}">Lighting</a></li>
+                <li><a href="{{ url_for('decor') }}">Home Decor</a></li>
+                <li><a href="{{ url_for('outdoor_garden') }}">Outdoor & Garden</a></li>
+                <li><a href="{{ url_for('stationary_craft') }}">Stationery & Craft</a></li>
+                <li><a href="{{ url_for('tools_home') }}">Tools & Home Improvement</a></li>
+              </ul>
+        </div>
+
+        <div class="breadcrumb">
+                <ul class="addressLink">
+                    <li>
+                        <a href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('storage') }}">Storage & Organization</a>
+                    </li>
+                    <li>
+                        <a href="#" style="text-decoration: underline; color: green;">Deck Boxes & Balcony Storage</a>
+                    </li>
+                </ul>
+        </div>
+
+        <div class="category">
+            <div class="category-container">
+
+              <!--FIRST ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Storage & Organisation/Deck Boxes & Balcony Storage/deck_box1.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Undale Outdoor Storage Box, 60 Gallon Wicker Patio Deck Boxes with Lid
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    1.2k sold
+                  </div>
+                </div>
+              </div>
+
+              <!--SECOND ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Storage & Organisation/Deck Boxes & Balcony Storage/deck_box2.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Ktaxon Outdoor Deck Storage Box 132 Gallon Resin Wicker Brown Gradient
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    1.2k sold
+                  </div>
+                </div>
+              </div>
+
+              <!--THIRD ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Storage & Organisation/Deck Boxes & Balcony Storage/deck_box3.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Suncast 22-Gallon Small Deck Box - Lightweight Resin Indoor/Outdoor Storage Container
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    1.2k sold
+                  </div>
+
+                </div>
+              </div>
+
+              <!--FOURTH ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Storage & Organisation/Deck Boxes & Balcony Storage/deck_box4.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Lifetime 60012 Extra Large Deck Box, 130 Gallon, Desert Sand/Brown
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    1.2k sold
+                  </div>
+                </div>
+              </div>
+
+              <!--FIFTH ITEM-->
+              <div class="category-content w3-card-4">
+                <div class="category-content-pic">
+                  <img src = "static/images/Storage & Organisation/Deck Boxes & Balcony Storage/deck_box5.jpg">
+                </div>
+                <div class="category-content-desc">
+                  <p>Suncast 99 Gallon Resin Wicker Patio Outdoor Storage Container for Toys, Furniture Deck box
+                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  </p>
+                  <div class ="price">
+                  ₱100.00
+                  </div>
+                  <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    1.2k sold
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+        </div>
+        <br><br><br>
+        <hr>
+        <!--RELATED CATEGORIES-->
+        <section class="related-cat">
+        <p style="padding-left: 20px; font-size: 20px; font-weight: bold;">Related Categories</p>
+
+          <div class="other">
+
+            <!--related cat 1-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('wardrobeorganiser') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Storage & Organisation/Wardrobe Organisers/wardrobe_org1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Wardrobe Organisers</p>
+              </div>
+            </div>
+
+            <!--related cat 2-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('compressionbags') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Storage & Organisation/Compression Bags/compression1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Compression Bags</p>
+              </div>
+            </div>
+
+            <!--related cat 3-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('medicine') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Storage & Organisation/Medicine & First Aid Storage/first_aid1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Medicine & First Aid Storage</p>
+              </div>
+            </div>
+
+            <!--related cat 4-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('storagebins') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Storage & Organisation/Storage Bins & Baskets/storage_bin1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Storage Bins & Baskets</p>
+              </div>
+            </div>
+
+            <!--related cat 5-->
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('spacesavers') }}' ;"
+                    style="cursor: pointer;">
+              <div class="other-content-pic">
+                <img src = "static/images/Storage & Organisation/Space Savers/space_saver1.jpg">
+              </div>
+              <div class="other-content-name">
+                <p>Space Savers</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <hr>
+        <div class="footer">
+          <br>
+          <table>
+            <tr>
+              <th>News and Info</th>
+              <th colspan="2">Top Brands and Pages</th>
+              <th colspan="2" style="width: 30%;">Contacts</th>
+            </tr>
+            <tr>
+              <td>Products</td>
+              <td>Ikea</td>
+              <td>Mandaue Foam</td>
+              <td>Email</td>
+              <td style="text-align: left; color:blue;">haus_service@email.com</td>
+            </tr>
+            <tr>
+              <td>Guarantees</td>
+              <td>Uratex</td>
+              <td>Firefly</td>
+              <td>Phone</td>
+              <td style="text-align: left; color:blue;">+63 9123 456 789</td>
+            </tr>
+            <tr>
+              <td>New Products</td>
+              <td>Wilton</td>
+              <td>Dewalt</td>
+              <td>Address</td>
+              <td style="text-align: left; color:blue;">HAUS Corp. Cebu City 6000, Philippines</td>
+            </tr>
+            <tr>
+              <td>Wholesale</td>
+              <td>Cofta</td>
+              <td>Bosch</td>
+            </tr>
+            <tr>
+              <td>Customer Service</td>
+              <td>Stanley</td>
+              <td>Philflex</td>
+            </tr>
+
+          </table>
+          <br>
+        Copyright &copy; HAUS Home & Living, 2022. The HAUS is not responsible for contents of external sites
+        </div>
+    </body>
+</html>

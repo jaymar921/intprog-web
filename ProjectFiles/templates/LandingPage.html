@@ -19,27 +19,27 @@
 <body>
   <div class="banner" style="width: 100%;">
     <!--the navigation bar DIV-->
+    <div class="stick">
     <div class="w3-container w3-padding" style="display: block;">
       <div>
         <img src="static/images/LandingPage/1a.png" class="logo">
       </div>
-      <div class="topnav">
-        <a href="#Home">Home</a>
+      <div class="topnav" id="topnav">
         <a href="#About Us">About Us</a>
         <div class="dropdown" >
           <a href="#Categories">Categories <i class="fa-solid fa-chevron-down"></i></a>
           <div class="dropdown-content">
-            <a href="#">Bath</a>
-            <a href="#">Bedding</a>
-            <a href="#">Furniture</a>
-            <a href="#">Storage & Organization</a>
-            <a href="#">Laundry & Cleaning Equipment</a>
-            <a href="#">Kitchen & Dining</a>
-            <a href="#">Lighting</a>
-            <a href="#">Home Decor</a>
-            <a href="#">Outdoor & Garden</a>
-            <a href="#">Stationery & Craft</a>
-            <a href="#">Tools & Home Improvement</a>
+            <a href="{{ url_for('bath') }}">Bath</a>
+            <a href="{{ url_for('bedding') }}">Bedding</a>
+            <a href="{{ url_for('furniture') }}">Furniture</a>
+            <a href="{{ url_for('storage') }}">Storage & Organization</a>
+            <a href="{{ url_for('laundry_cleaning') }}">Laundry & Cleaning Equipment</a>
+            <a href="{{ url_for('kitchen_dining') }}">Kitchen & Dining</a>
+            <a href="{{ url_for('lighting') }}">Lighting</a>
+            <a href="{{ url_for('decor') }}">Home Decor</a>
+            <a href="{{ url_for('outdoor_garden') }}">Outdoor & Garden</a>
+            <a href="{{ url_for('stationary_craft') }}">Stationery & Craft</a>
+            <a href="{{ url_for('tools_home') }}">Tools & Home Improvement</a>
           </div>
         </div>
 
@@ -67,8 +67,8 @@
             <a style="font-size:0.8em;">{{account}}</a>
           {% endif %}
       </div>
-
       </div>
+    </div>
     </div>
     <br>
     <!--SLIDE SHOW-->
@@ -184,7 +184,8 @@
     <br><br>
     <div class="category-container">
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('bath') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/bath.jpg">
         </div>
@@ -194,7 +195,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('bedding') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/bedding.jpg">
         </div>
@@ -204,7 +206,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('furniture') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/furniture.jpg">
         </div>
@@ -214,7 +217,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('storage') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/storage.jpg">
         </div>
@@ -224,7 +228,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('laundry_cleaning') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/laundry.jpg">
         </div>
@@ -234,7 +239,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('kitchen_dining') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/kitchen.jpg">
         </div>
@@ -244,7 +250,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('lighting') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/lighting.jpg">
         </div>
@@ -254,7 +261,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('decor') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/homedecor.jpg">
         </div>
@@ -264,7 +272,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('outdoor_garden') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/gardentools.jpg">
         </div>
@@ -274,7 +283,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('stationary_craft') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/stationery.jpg">
         </div>
@@ -284,7 +294,8 @@
         </div>
       </div>
 
-      <div class="category-content w3-card-4">
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('tools_home') }}' ;"
+           style="cursor: pointer;">
         <div class="category-content-pic">
           <img src = "static/images/LandingPage/homeimprovement.jpg">
         </div>
@@ -331,6 +342,11 @@
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
   }
+
+  window.addEventListener("scroll", function(){
+    var header = document.getElementById("topnav");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
 </script>
 
 </html>
