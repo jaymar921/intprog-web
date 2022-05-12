@@ -2,6 +2,12 @@ body {
     margin: 0;
 }
 
+.w3-container{
+    float: right;
+    width: 15%;
+    display: inline-flex;
+}
+
 .logo {
     float: left;
     max-width: 20vh;

@@ -73,121 +73,29 @@
             <div class="category-container">
 
               <!--FIRST ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers1.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Set Da Bagno Ceramica
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--SECOND ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers2.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Silver Bling Bathroom accessories
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--THIRD ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers3.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Bath Accessories Set
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-
-                </div>
-              </div>
-
-              <!--FOURTH ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers4.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Papillon Bathroom Accessories
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--FIFTH ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers5.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Bronze Bathroom Accessories
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    1.2k sold
-                  </div>
-
-                </div>
-              </div>
+                {% for item in data %}
+                    <div class="category-content w3-card-4">
+                        <div class="category-content-pic">
+                          <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers{{data.index(item)+1}}.jpg">
+                        </div>
+                        <div class="category-content-desc">
+                          <p>{{ item.name }}
+                            <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                          </p>
+                          <div class ="price">
+                          ₱{{ item.price }}
+                          </div>
+                          <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            1.2k sold
+                          </div>
+                        </div>
+                      </div>
+                  {% endfor %}
 
             </div>
         </div>

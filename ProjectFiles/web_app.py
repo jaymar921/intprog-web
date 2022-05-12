@@ -1,5 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request
 from database import register_account, hashString, getAccount
+import database
+import utility
 from random import randint
 
 app = Flask(__name__)
@@ -31,6 +33,14 @@ def loginAccount():
         return "invalid"
 
 
+# render bathrobes
+@app.route("/productListing/<prod>")
+def productListing(prod: int):
+    DATA: list = []
+    data: utility.Product = database.getProduct(prod)
+    DATA.append(data)
+    return render_template("Listing/item.html", data=DATA)
+
 # render Bath.html
 @app.route("/bath")
 def bath():
@@ -40,72 +50,123 @@ def bath():
 # render bath mats
 @app.route("/bathmats")
 def bathmats():
-    return render_template("Bathmats.html")
+    DATA: list = []
+    for x in range(101, 106):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("Bathmats.html", data=DATA)
 
 
 # render towel
 @app.route("/towel")
 def towel():
-    return render_template("Towels.html")
+    DATA: list = []
+    for x in range(201, 206):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("Towels.html", data=DATA)
 
 
 # render bathrobes
 @app.route("/bathrobes")
 def bathrobes():
-    return render_template("Bathrobes.html")
+    DATA: list = []
+    for x in range(301, 306):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("Bathrobes.html", data=DATA)
 
 
 # render bath mirrors
 @app.route("/bathmirrors")
 def bathmirrors():
-    return render_template("BathMirrors.html")
+    DATA: list = []
+    for x in range(601, 606):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("BathMirrors.html", data=DATA)
 
 
 # render Linen Towers & Cabinets
 @app.route("/linentowers")
 def linentowers():
-    return render_template("LinenTowers.html")
+    DATA: list = []
+    for x in range(901, 906):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("LinenTowers.html", data=DATA)
 
 
 # render Towel Rails & Warmers
 @app.route("/towelrails")
 def towelrails():
-    return render_template("TowelRails.html")
+    DATA: list = []
+    for x in range(1201, 1206):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("TowelRails.html", data=DATA)
 
 
 # render Bathroom Counter Storage
 @app.route("/bathroomcounter")
 def bathroomcounter():
-    return render_template("BathroomCounter.html")
+    DATA: list = []
+    for x in range(401, 407):
+        if x == 404:
+            continue
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("BathroomCounter.html", data=DATA)
 
 
 # render Holders & Dispensers
 @app.route("/holders")
 def holders():
-    return render_template("Holders.html")
+    DATA: list = []
+    for x in range(501, 506):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("Holders.html", data=DATA)
 
 
 # render Shower Curtains & Accessories
 @app.route("/showercurtains")
 def showercurtains():
-    return render_template("ShowerCurtains.html")
+    DATA: list = []
+    for x in range(1001, 1006):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("ShowerCurtains.html", data=DATA)
+
 
 # render Shower Caddies & Hangers
 @app.route("/showerhangers")
 def showerhangers():
-    return render_template("ShowerCaddies.html")
+    DATA: list = []
+    for x in range(1101, 1106):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("ShowerCaddies.html", data=DATA)
 
 
 # render Bathroom Shelving
 @app.route("/bathroomshelving")
 def bathroomshelving():
-    return render_template("BathroomShelving.html")
+    DATA: list = []
+    for x in range(801, 806):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("BathroomShelving.html", data=DATA)
 
 
 # render Bathroom Scale
 @app.route("/bathroomscale")
 def bathroomscale():
-    return render_template("BathroomScales.html")
+    DATA: list = []
+    for x in range(701, 706):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    return render_template("BathroomScales.html", data=DATA)
 
 
 # render Bedding.html
@@ -144,7 +205,7 @@ def electricblanket():
     return render_template("ElectricBlankets.html")
 
 
-#render Mattress Pads
+# render Mattress Pads
 @app.route("/mattresspads")
 def mattrespads():
     return render_template("MattersPads.html")
@@ -213,9 +274,9 @@ def kithcenfurniture():
 # render Living Room Furniture
 @app.route("/livingroom")
 def livingroom():
-    return render_template("LivingRoom.html")\
-
-
+    return render_template("LivingRoom.html") \
+ \
+ \
 # render Mattress
 @app.route("/mattress")
 def mattress():

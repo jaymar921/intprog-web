@@ -73,121 +73,31 @@
             <div class="category-container">
 
               <!--FIRST ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Towel Rails & Warmers/towel_rail1.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Brushed Nickel Bath Towel Stand
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
+                {% for item in data %}
+                    <div class="category-content w3-card-4">
+                        <div class="category-content-pic">
+                          <img src = "static/images/bath/Towel Rails & Warmers/towel_rail{{data.index(item)+1}}.jpg">
+                        </div>
+                        <div class="category-content-desc">
+                          <p>{{ item.name }}
+                            <i class="fa fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer; color: red;"></i>
+                          </p>
+                          <div class ="price">
+                          ₱{{ item.price }}
+                          </div>
+                          <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            1.2k sold
+                          </div>
+                        </div>
+                      </div>
+                  {% endfor %}
 
-              <!--SECOND ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Towel Rails & Warmers/tower_rail2.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Samuel Heath Freestandinf Towel Stand
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
 
-              <!--THIRD ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src =  "static/images/bath/Towel Rails & Warmers/tower_rail3.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Porte Serviette Sur Pied Noir
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-
-                </div>
-              </div>
-
-              <!--FOURTH ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src =  "static/images/bath/Towel Rails & Warmers/tower_rail4.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Heated Towel Rack Freestanding
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--FIFTH ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src =  "static/images/bath/Towel Rails & Warmers/tower_rail5.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Wall Mount Towel Warmer
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    1.2k sold
-                  </div>
-
-                </div>
-              </div>
 
             </div>
         </div>

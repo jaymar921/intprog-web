@@ -1,5 +1,6 @@
 from mysql import connector
 import hashlib
+import utility
 
 database = connector.connect(
     host="127.0.0.1",
@@ -26,5 +27,14 @@ def getAccount(email: str, password: str)->bool:
 
 
 def hashString(string: str) -> str:
-    data:str = hashlib.md5(string.encode()).hexdigest()
+    data: str = hashlib.md5(string.encode()).hexdigest()
     return str(data)[0:32]
+
+
+def getProduct(prod_id: int):
+    sql: str = f"SELECT * FROM `product` where prod_id = '{prod_id}'"
+    cursor = database.cursor(dictionary=True)
+    cursor.execute(sql)
+    DATA: list = cursor.fetchall()
+    cursor.close()
+    return utility.Product(DATA[0]['PROD_ID'], DATA[0]['PROD_CATEGORY'], DATA[0]['PROD_PRICE'], DATA[0]['PROD_NAME'], DATA[0]['PROD_QUANTITY'])

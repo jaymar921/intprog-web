@@ -73,16 +73,16 @@
             <div class="category-container">
 
               <!--FIRST ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[0].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Towels/towel1.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Microfiber Bath Towel QuikDry Design JJF Cannon
+                  <p>{{ data[0].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[0].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -96,16 +96,16 @@
               </div>
 
               <!--SECOND ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[1].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Towels/towel2.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Amor Printed Bath Towel Cotton Bath towel Absorbent 70*140cm
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                  <p>{{ data[1].name }}
+                    <i class="fa fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer; color: red;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[1].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -119,16 +119,16 @@
               </div>
 
               <!--THIRD ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[2].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Towels/towel3.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Bath towel cannon stripe/1piece 140x70
+                  <p>{{ data[2].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[2].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -143,16 +143,16 @@
               </div>
 
               <!--FOURTH ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[3].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Towels/towel4.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>3in1 Microfiber Towel Set(100% cotton) bath towel
+                  <p>{{ data[3].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[3].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -166,16 +166,16 @@
               </div>
 
               <!--FIFTH ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[4].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Towels/towel5.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Cannon Bath Towel Tuwalya 67cmx137cm
+                  <p>{{ data[4].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[4].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>

@@ -73,121 +73,29 @@
             <div class="category-container">
 
               <!--FIRST ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf1.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Black Metal Wall Shelves
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
+            {% for item in data %}
+                <div class="category-content w3-card-4">
+                    <div class="category-content-pic">
+                      <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf{{data.index(item)+1}}.jpg">
+                    </div>
+                    <div class="category-content-desc">
+                      <p>{{ item.name }}
+                        <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
+                      </p>
+                      <div class ="price">
+                      ₱{{ item.price }}
+                      </div>
+                      <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        1.2k sold
+                      </div>
+                    </div>
                   </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--SECOND ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf2.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>White Three Tier Shelf
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--THIRD ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf3.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Industrial Pipe Glass Shelving
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-
-                </div>
-              </div>
-
-              <!--FOURTH ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf4.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>3 Tier Industrial Wall Shelf
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    1.2k sold
-                  </div>
-                </div>
-              </div>
-
-              <!--FIFTH ITEM-->
-              <div class="category-content w3-card-4">
-                <div class="category-content-pic">
-                  <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf5.jpg">
-                </div>
-                <div class="category-content-desc">
-                  <p>Hobby Lobby Shelf
-                    <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
-                  </p>
-                  <div class ="price">
-                  ₱100.00
-                  </div>
-                  <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    1.2k sold
-                  </div>
-
-                </div>
-              </div>
+              {% endfor %}
 
             </div>
         </div>

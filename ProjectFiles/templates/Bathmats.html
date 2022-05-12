@@ -73,16 +73,16 @@
             <div class="category-container">
 
               <!--FIRST ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[0].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Bath Mats/1_bath_mats.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Fast Drying Bathroom Mat Anti-Slip Absorbent Diatom Mud Ultra Absorbent Mat Bath Mats
+                  <p>{{ data[0].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[0].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -96,16 +96,16 @@
               </div>
 
               <!--SECOND ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[1].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Bath Mats/2_bath_mats.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Bath mat toliet shower anti slip mat
+                  <p>{{ data[1].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[1].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -119,16 +119,16 @@
               </div>
 
               <!--THIRD ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[2].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Bath Mats/3_bath_mats.jpeg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Bathroom Shower Mat Non-Slip Bathmats PVC Floor Mats for Toilet Bathroom Rug
+                  <p>{{ data[2].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[2].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -143,16 +143,16 @@
               </div>
 
               <!--FOURTH ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[3].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Bath Mats/4_bath_mats.jpeg">
                 </div>
                 <div class="category-content-desc">
-                  <p>NON-SLIP Bath Mat For Toilet Anti Slip Bathroom Mat Floor Mat
+                  <p>{{ data[3].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[3].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -166,16 +166,16 @@
               </div>
 
               <!--FIFTH ITEM-->
-              <div class="category-content w3-card-4">
+              <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[4].prod_id}}'" style="cursor: pointer;">
                 <div class="category-content-pic">
                   <img src = "static/images/bath/Bath Mats/5_bath_mats.jpg">
                 </div>
                 <div class="category-content-desc">
-                  <p>Diatom Quick Dry Bathroom Floor Mat Anti slip floor mat
+                  <p>{{ data[4].name }}
                     <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                   </p>
                   <div class ="price">
-                  ₱100.00
+                  ₱{{ data[4].price }}
                   </div>
                   <div class="rating">
                     <span class="fa fa-star checked"></span>
