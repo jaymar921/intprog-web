@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bathroom Mirrors</title>
+        <title>{{info[0].sub_category}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="{{ url_for('static',filename='listing.css') }}">
@@ -13,7 +13,7 @@
     <body>
         <div class="top-nav">
             <div>
-              <a href="{{ url_for('home') }}"><img src="static/images/LandingPage/1a.png" class="logo"></a>
+              <a href="{{ url_for('home') }}"><img src="/static/images/LandingPage/1a.png" class="logo"></a>
             </div>
             <div style="margin-left: 100px; margin-right: 100px;">
               <form>
@@ -25,7 +25,7 @@
 
               <i class="fa-regular fa-heart fa-2x" style="margin-right: 40px; cursor: pointer;"></i>
               <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 40px;"></i>
-              <!-- Copy Here -->
+                <!-- Copy Here -->
               <div class="dropdown" >
                 <i class="fa fa-user fa-2x"  style="cursor: pointer;"></i>
                 <div class="dropdown-content">
@@ -61,10 +61,10 @@
                         <a href="{{ url_for('home') }}">Home</a>
                     </li>
                     <li>
-                        <a href="{{ url_for('bath') }}">Bath</a>
+                        <a href="/{{category}}">{{info[0].category}}</a>
                     </li>
                     <li>
-                        <a href="#" style="text-decoration: underline; color: green;">Bathroom Mirrors</a>
+                        <a href="#" style="text-decoration: underline; color: green;">{{info[0].sub_category}}</a>
                     </li>
                 </ul>
         </div>
@@ -72,26 +72,28 @@
         <div class="category">
             <div class="category-container">
 
-             <!--FIRST ITEM-->
-              {% for item in data %}
-                <div class="category-content w3-card-4">
+            <!--FIRST ITEM-->
+              {% for x in range(data|length) %}
+                <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[x].prod_id}}'" style="cursor: pointer;">
                     <div class="category-content-pic">
-                      <img src = "static/images/bath/Bathroom Mirrors/bathroom_mirror{{data.index(item)+1}}.jpg">
+                      <img src = "/static/{{info[x].photo_link}}">
                     </div>
                     <div class="category-content-desc">
-                      <p>{{ item.name }}
+                      <p>{{ data[x].name }}
                         <i class="fa-regular fa-heart fa-2x" style="float: right; padding-right:10px ; cursor: pointer;"></i>
                       </p>
                       <div class ="price">
-                      ₱{{ item.price }}
+                      ₱{{ data[x].price }}
                       </div>
                       <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        1.2k sold
+                        {% for x in range(5) %}
+                            {% if x < info[x].rating %}
+                              <span class="fa fa-star checked"></span>
+                            {% else %}
+                              <span class="fa fa-star"></span>
+                            {% endif %}
+                          {% endfor %}
+                        {{info[x].sold}} sold
                       </div>
                     </div>
                   </div>
@@ -119,24 +121,24 @@
             </div>
 
             <!--related cat 2-->
-            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('bathroomcounter') }}' ;"
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('bathmirrors') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Bathroom Counter Storage/bathroom_counter_storage1.jpg">
+                <img src = "static/images/bath/Bathroom Mirrors/bathroom_mirror1.jpg">
               </div>
               <div class="other-content-name">
-                <p>Bathroom Counter Storage</p>
+                <p>Bathroom Mirrors</p>
               </div>
             </div>
 
             <!--related cat 3-->
-            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('holders') }}' ;"
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('linentowers') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Holders & Dispensers/holders_and_dispensers1.jpg">
+                <img src = "static/images/bath/Linen Towers & Cabinets/linens_cabinet1.jpg">
               </div>
               <div class="other-content-name">
-                <p>Holders and Dispensers</p>
+                <p>Linen Towers & Cabinets</p>
               </div>
             </div>
 
@@ -152,13 +154,13 @@
             </div>
 
             <!--related cat 5-->
-            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('bathroomshelving') }}' ;"
+            <div class="other-content w3-card-2" onclick="location.href='{{ url_for('towelrails') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Bathroom Shelving/bathroom_shelf1.jpg">
+                <img src = "static/images/bath/Towel Rails & Warmers/towel_rail1.jpg">
               </div>
               <div class="other-content-name">
-                <p>Bathroom Shelving</p>
+                <p>Towel Rails & Warmers</p>
               </div>
             </div>
 

@@ -1,34 +1,37 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, session
 from database import register_account, hashString, getAccount
 import database
 import utility
 from random import randint
 
 app = Flask(__name__)
+app.secret_key = '39cm85yu234m98'
 
 
 # go to landing page
 @app.route("/")
 def landing_page():
-    return render_template("LandingPage.html")
+    return render_template("Navigation/LandingPage.html")
 
 
 @app.route("/home")
 def home():
-    return render_template("LandingPage.html")
+    return render_template("Navigation/LandingPage.html", account=session['username'])
 
 
 # calls the login.html, asks the user to enter email and password
 @app.route("/login")
 def login():
-    return render_template("Login.html")
+    return render_template("Navigation/Login.html")
 
 
 # retrieves data from login form, check if account exist in database
 @app.route("/login_account", methods=['POST'])
 def loginAccount():
+    print(hashString(request.form["psw"]))
     if getAccount(request.form["email"], hashString(request.form["psw"])):
-        return render_template("LandingPage.html", account=request.form["email"])
+        session['username'] = request.form["email"]
+        return render_template("LandingPage.html", account=session['username'])
     else:
         return "invalid"
 
@@ -39,338 +42,314 @@ def productListing(prod: int):
     DATA: list = []
     data: utility.Product = database.getProduct(prod)
     DATA.append(data)
-    return render_template("Listing/item.html", data=DATA)
+    INFO: list = []
+    data: utility.ProductInfo = database.getProductInfo(prod)
+    INFO.append(data)
 
-# render Bath.html
+    return render_template("Listing/item.html", data=DATA, info=INFO,
+                           category=utility.parseCatLocation(INFO[0].category),
+                           sub_category=utility.parseSubCatLocation(prod),
+                           account=session['username'])
+
+
 @app.route("/bath")
 def bath():
-    return render_template("Bath.html")
+    return render_template("Categories/bath.html", account=session['username'])
+
+
+# render product
+@app.route("/product/<items>")
+def showProduct(items: str):
+    CODES: list = items.split("...")
+    m: int = int(CODES[0])
+    r: int = int(CODES[1])
+    DATA: list = []
+    for x in range(m, r):
+        data: utility.Product = database.getProduct(x)
+        DATA.append(data)
+    INFO: list = []
+    for x in range(m, r):
+        data: utility.ProductInfo = database.getProductInfo(x)
+        INFO.append(data)
+    return render_template("ProductInfo/PRODUCT_INFORMATION.html", data=DATA, info=INFO,
+                           category=utility.parseCatLocation(INFO[0].category),
+                           account=session['username'])
 
 
 # render bath mats
 @app.route("/bathmats")
 def bathmats():
-    DATA: list = []
-    for x in range(101, 106):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("Bathmats.html", data=DATA)
+    return redirect("/product/101...106")
 
 
 # render towel
 @app.route("/towel")
 def towel():
-    DATA: list = []
-    for x in range(201, 206):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("Towels.html", data=DATA)
+    return redirect("/product/201...206")
 
 
 # render bathrobes
 @app.route("/bathrobes")
 def bathrobes():
-    DATA: list = []
-    for x in range(301, 306):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("Bathrobes.html", data=DATA)
+    return redirect("/product/301...306")
 
 
 # render bath mirrors
 @app.route("/bathmirrors")
 def bathmirrors():
-    DATA: list = []
-    for x in range(601, 606):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("BathMirrors.html", data=DATA)
+    return redirect("/product/601...606")
 
 
 # render Linen Towers & Cabinets
 @app.route("/linentowers")
 def linentowers():
-    DATA: list = []
-    for x in range(901, 906):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("LinenTowers.html", data=DATA)
+    return redirect("/product/901...906")
 
 
 # render Towel Rails & Warmers
 @app.route("/towelrails")
 def towelrails():
-    DATA: list = []
-    for x in range(1201, 1206):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("TowelRails.html", data=DATA)
+    return redirect("/product/1201...1206")
 
 
 # render Bathroom Counter Storage
 @app.route("/bathroomcounter")
 def bathroomcounter():
-    DATA: list = []
-    for x in range(401, 407):
-        if x == 404:
-            continue
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("BathroomCounter.html", data=DATA)
+    return redirect("/product/401...406")
 
 
 # render Holders & Dispensers
 @app.route("/holders")
 def holders():
-    DATA: list = []
-    for x in range(501, 506):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("Holders.html", data=DATA)
+    return redirect("/product/501...506")
 
 
 # render Shower Curtains & Accessories
 @app.route("/showercurtains")
 def showercurtains():
-    DATA: list = []
-    for x in range(1001, 1006):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("ShowerCurtains.html", data=DATA)
+    return redirect("/product/1001...1006")
 
 
 # render Shower Caddies & Hangers
 @app.route("/showerhangers")
 def showerhangers():
-    DATA: list = []
-    for x in range(1101, 1106):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("ShowerCaddies.html", data=DATA)
+    return redirect("/product/1101...1106")
 
 
 # render Bathroom Shelving
 @app.route("/bathroomshelving")
 def bathroomshelving():
-    DATA: list = []
-    for x in range(801, 806):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("BathroomShelving.html", data=DATA)
+    return redirect("/product/801...806")
 
 
 # render Bathroom Scale
 @app.route("/bathroomscale")
 def bathroomscale():
-    DATA: list = []
-    for x in range(701, 706):
-        data: utility.Product = database.getProduct(x)
-        DATA.append(data)
-    return render_template("BathroomScales.html", data=DATA)
+    return redirect("/product/701...706")
 
 
 # render Bedding.html
 @app.route("/bedding")
 def bedding():
-    return render_template("Bedding.html")
+    return render_template("Categories/Bedding.html", account=session['username'])
 
 
 # render Bedding Runners & Skirts
 @app.route("/bedrunners")
 def bedrunners():
-    return render_template("BedRunners.html")
+    return redirect("/product/1301...1306")
 
 
 # render Bed Sheet
 @app.route("/bedsheet")
 def bedsheet():
-    return render_template("Bedsheet.html")
+    return redirect("/product/1401...1406")
 
 
 # render Blankets & Throws
 @app.route("/blanket")
 def blanket():
-    return render_template("Blankets.html")
+    return redirect("/product/1501...1506")
 
 
 # render Comforters, Quilts & Duvets
 @app.route("/comforter")
 def comforter():
-    return render_template("Comforters.html")
+    return redirect("/product/1601...1606")
 
 
 # render Electric Blanket
 @app.route("/electricblanket")
 def electricblanket():
-    return render_template("ElectricBlankets.html")
+    return redirect("/product/1701...1706")
 
 
 # render Mattress Pads
 @app.route("/mattresspads")
 def mattrespads():
-    return render_template("MattersPads.html")
+    return redirect("/product/1801...1806")
 
 
 # render Pillow Cases
 @app.route("/pillowcases")
 def pillowcases():
-    return render_template("PillowCases.html")
+    return redirect("/product/1901...1906")
 
 
 # render Pillow Protectors
 @app.route("/pillowprotectors")
 def pillowprotectors():
-    return render_template("PillowProtectors.html")
+    return redirect("/product/2001...2006")
 
 
 # render Pillow Bolsters
 @app.route("/pillowbolsters")
 def pillowbolsters():
-    return render_template("PillowBolsters.html")
+    return redirect("/product/2101...2106")
 
 
 # render Furniture.html
 @app.route("/furniture")
 def furniture():
-    return render_template("Furniture.html")
+    return render_template("Categories/Furniture.html", account=session['username'])
 
 
 # render Bedroom Furniture
 @app.route("/bedroomfurniture")
 def bedroomfurniture():
-    return render_template("BedroomFurniture.html")
+    return redirect("/product/2201...2206")
 
 
 # render Chairs
 @app.route("/chairs")
 def chair():
-    return render_template("Chairs.html")
+    return redirect("/product/2301...2306")
 
 
 # render Gaming Furniture
 @app.route("/gamingfurniture")
 def gamingfurniture():
-    return render_template("GamingFurniture.html")
+    return redirect("/product/2401...2406")
 
 
 # render Home Office Furniture
 @app.route("/officefurniture")
 def officefurniture():
-    return render_template("OfficeFurniture.html")
+    return redirect("/product/2501...2506")
 
 
 # render Kids Tables & Sets
 @app.route("/kidstable")
 def kidstable():
-    return render_template("KidsTable.html")
+    return redirect("/product/2601...2606")
 
 
 # render Kitchen & Dining Furniture
 @app.route("/kithcenfurniture")
 def kithcenfurniture():
-    return render_template("KitchenFurniture.html")
+    return redirect("/product/2701...2706")
 
 
 # render Living Room Furniture
 @app.route("/livingroom")
 def livingroom():
-    return render_template("LivingRoom.html") \
- \
- \
+    return redirect("/product/2801...2806")
+
+
 # render Mattress
 @app.route("/mattress")
 def mattress():
-    return render_template("Mattress.html")
+    return redirect("/product/2901...2906")
 
 
 # render Media or TV Storge
 @app.route("/mediastorage")
 def mediastorage():
-    return render_template("MediaStorage.html")
+    return redirect("/product/3001...3006")
 
 
 # render Outdoor Furniture
 @app.route("/outdoorfurniture")
 def outdoorfurniture():
-    return render_template("OutdoorFurniture.html")
+    return redirect("/product/3101...3106")
 
 
 # render Sofas
 @app.route("/sofas")
 def sofas():
-    return render_template("Sofas.html")
+    return redirect("/product/3201...3206")
 
 
 # render Wardrobes
 @app.route("/wardrobe")
 def wardrobe():
-    return render_template("Wardrobes.html")
+    return redirect("/product/3301...3306")
 
 
 # render Storage_and_Organization.html
 @app.route("/storage")
 def storage():
-    return render_template("Storage_and_Organization.html")
+    return render_template("Categories/Storage_and_Organization.html", account=session['username'])
 
 
 # render Compression Bags
 @app.route("/compressionbags")
 def compressionbags():
-    return render_template("CompressionBags.html")
+    return redirect("/product/3401...3406")
 
 
 # render Deck Boxes & Balcony Storage
 @app.route("/deckboxes")
 def deckboxes():
-    return render_template("DeckBoxes.html")
+    return redirect("/product/3501...3506")
 
 
 # render Medicine & First Ais Storage
 @app.route("/medicine")
 def medicine():
-    return render_template("Medicine.html")
+    return redirect("/product/3701...3706")
 
 
 # render Shoe Organiser
 @app.route("/shoe")
 def shoe():
-    return render_template("ShoeOrganiser.html")
+    return redirect("/product/3801...3806")
 
 
 # render Space Savers
 @app.route("/spacesavers")
 def spacesavers():
-    return render_template("SpaceSavers.html")
+    return redirect("/product/3901...3906")
 
 
 # render Storge Bins & Baskets
 @app.route("/storagebins")
 def storagebins():
-    return render_template("StorageBins.html")
+    return redirect("/product/4001...4006")
 
 
 # render Wardrobe Organiser
 @app.route("/wardrobeorganiser")
 def wardrobeorganiser():
-    return render_template("WardrobeOrganiser.html")
+    return redirect("/product/4101...4106")
 
 
 # render Laundry_and_Cleaning_Equipment.html
 @app.route("/laundry_cleaning")
 def laundry_cleaning():
-    return render_template("Laundry_and_Cleaning_Equipment.html")
+    return render_template("Categories/Laundry_and_Cleaning_Equipment.html", account=session['username'])
 
 
 # render Brooms., Mops & Sweepers
 @app.route("/brooms")
 def brooms():
-    return render_template("Brooms.html")
+    return redirect("/product/4201...4206")
 
 
 # render Cleaning Buckets & Tubs
 @app.route("/cleaning")
 def cleaning():
-    return render_template("CleaningBuckets.html")
+    return redirect("/product/4301...4306")
 
 
 # render Clothes Hangers & Pegs
@@ -418,7 +397,7 @@ def washballs():
 # render Kitchen_and_Dining.html
 @app.route("/kitchen_dining")
 def kitchen_dining():
-    return render_template("Kitchen_and_Dining.html")
+    return render_template("Categories/Kitchen_and_Dining.html", account=session['username'])
 
 
 # render Bakeware
@@ -484,7 +463,7 @@ def kitchenutensils():
 # render Lighting.html
 @app.route("/lighting")
 def lighting():
-    return render_template("Lighting.html")
+    return render_template("Categories/Lighting.html", account=session['username'])
 
 
 # render Bathroom Lighting
@@ -550,7 +529,7 @@ def walllights():
 # render Home_Decor.html
 @app.route("/decor")
 def decor():
-    return render_template("Home_Decor.html")
+    return render_template("Categories/Home_Decor.html", account=session['username'])
 
 
 # render Clock
@@ -628,7 +607,7 @@ def walldecor():
 # render Outdoor_and_Garden.html
 @app.route("/outdoor_garden")
 def outdoor_garden():
-    return render_template("Outdoor_and_Garden.html")
+    return render_template("Categories/Outdoor_and_Garden.html", account=session['username'])
 
 
 # render Garden Decor & Ornaments
@@ -676,7 +655,7 @@ def water():
 # render Stationary_Craft.html
 @app.route("/stationary_craft")
 def stationary_craft():
-    return render_template("Stationary_Craft.html")
+    return render_template("Categories/Stationary_Craft.html", account=session['username'])
 
 
 # render Copier
@@ -748,7 +727,7 @@ def writingcorrection():
 # render Tools_Home_Improvement.html
 @app.route("/tools_home")
 def tools_home():
-    return render_template("Tools_Home_Improvement.html")
+    return render_template("Categories/Tools_Home_Improvement.html", account=session['username'])
 
 
 # render Electrical
@@ -814,14 +793,14 @@ def worklights():
 # calls the registration.html
 @app.route("/register")
 def register():
-    return render_template("registration.html", remark="")
+    return render_template("Navigation/registration.html", remark="")
 
 
 # retrieves the data from registration form
 @app.route("/register_account", methods=["POST"])
 def registerAccount():
     if "deny" in request.form['flag']:
-        return render_template("registration.html", remark="Password Mismatch!")
+        return render_template("Navigation/registration.html", remark="Password Mismatch!")
     data: dict = {
         "lastname": request.form['lastname'],
         "firstname": request.form['firstname'],
