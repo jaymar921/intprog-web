@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2022 at 04:13 PM
+-- Generation Time: Jun 03, 2022 at 02:29 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -70,8 +70,8 @@ INSERT INTO `product` (`PROD_ID`, `PROD_CATEGORY`, `PROD_PRICE`, `PROD_NAME`, `P
 (401, 'bathroom_counter', '1200.00', 'Belly Sink', 5),
 (402, 'bathroom_counter', '1599.00', 'Nordic Modern Minimalist Bathroom Cabinet', 5),
 (403, 'bathroom_counter', '985.00', 'Somanyy Wash Basin Caninet', 5),
-(405, 'bathroom_counter', '1399.00', 'Bathroom Cabinets Wooden India', 5),
-(406, 'bathroom_counter', '999.00', 'Solid Vanity Mirror', 5),
+(404, 'bathroom_counter', '1399.00', 'Bathroom Cabinets Wooden India', 5),
+(405, 'bathroom_counter', '999.00', 'Solid Vanity Mirror', 5),
 (501, 'holder_despensers', '789.00', 'Set Da Bagno Ceramica', 5),
 (502, 'holder_despensers', '999.00', 'Silver Bling Bathroom accessories', 5),
 (503, 'holder_despensers', '649.00', 'Bath Accessories Set', 5),
@@ -601,6 +601,238 @@ INSERT INTO `product` (`PROD_ID`, `PROD_CATEGORY`, `PROD_PRICE`, `PROD_NAME`, `P
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_info`
+--
+
+CREATE TABLE `product_info` (
+  `PRODUCT_ID` int(11) NOT NULL,
+  `PRODUCT_CATEGORY` varchar(100) NOT NULL,
+  `SUB_CATEGORY` varchar(100) NOT NULL,
+  `PICTURE_LINK` varchar(200) NOT NULL,
+  `SOLD` int(11) NOT NULL,
+  `RATING` decimal(2,1) NOT NULL,
+  `BUY_RATE` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_info`
+--
+
+INSERT INTO `product_info` (`PRODUCT_ID`, `PRODUCT_CATEGORY`, `SUB_CATEGORY`, `PICTURE_LINK`, `SOLD`, `RATING`, `BUY_RATE`) VALUES
+(101, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/1_bath_mats.jpg', 0, '0.0', 0),
+(102, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/2_bath_mats.jpg', 0, '0.0', 0),
+(103, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/3_bath_mats.jpeg', 0, '0.0', 0),
+(104, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/4_bath_mats.jpeg', 0, '0.0', 0),
+(105, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/5_bath_mats.jpg', 0, '0.0', 0),
+(201, 'Bath', 'Towels', 'images/bath/Towels/towel1.jpg', 0, '0.0', 0),
+(202, 'Bath', 'Towels', 'images/bath/Towels/towel2.jpg', 0, '0.0', 0),
+(203, 'Bath', 'Towels', 'images/bath/Towels/towel3.jpg', 0, '0.0', 0),
+(204, 'Bath', 'Towels', 'images/bath/Towels/towel4.jpg', 0, '0.0', 0),
+(205, 'Bath', 'Towels', 'images/bath/Towels/towel5.jpg', 0, '0.0', 0),
+(301, 'Bath', 'Bathrobes', 'images/bath/Bathrobes/bathrobe1.jpg', 0, '0.0', 0),
+(302, 'Bath', 'Bathrobes', 'images/bath/Bathrobes/bathrobe2.jpg', 0, '0.0', 0),
+(303, 'Bath', 'Bathrobes', 'images/bath/Bathrobes/bathrobe3.jpg', 0, '0.0', 0),
+(304, 'Bath', 'Bathrobes', 'images/bath/Bathrobes/bathrobe4.jpg', 0, '0.0', 0),
+(305, 'Bath', 'Bathrobes', 'images/bath/Bathrobes/bathrobe5.jpg', 0, '0.0', 0),
+(401, 'Bath', 'Bathroom Counter Storage', 'images/bath/Bathroom Counter Storage/bathroom_counter_storage1.jpg', 0, '0.0', 0),
+(402, 'Bath', 'Bathroom Counter Storage', 'images/bath/Bathroom Counter Storage/bathroom_counter_storage2.jpg', 0, '0.0', 0),
+(403, 'Bath', 'Bathroom Counter Storage', 'images/bath/Bathroom Counter Storage/bathroom_counter_storage3.jpg', 0, '0.0', 0),
+(404, 'Bath', 'Bathroom Counter Storage', 'images/bath/Bathroom Counter Storage/bathroom_counter_storage4.jpg', 0, '0.0', 0),
+(405, 'Bath', 'Bathroom Counter Storage', 'images/bath/Bathroom Counter Storage/bathroom_counter_storage5.jpg', 0, '0.0', 0),
+(501, 'Bath', 'Holders & Dispensers', 'images/bath/Holders & Dispensers/holders_and_dispensers1.jpg', 0, '0.0', 0),
+(502, 'Bath', 'Holders & Dispensers', 'images/bath/Holders & Dispensers/holders_and_dispensers2.jpg', 0, '0.0', 0),
+(503, 'Bath', 'Holders & Dispensers', 'images/bath/Holders & Dispensers/holders_and_dispensers3.jpg', 0, '0.0', 0),
+(504, 'Bath', 'Holders & Dispensers', 'images/bath/Holders & Dispensers/holders_and_dispensers4.jpg', 0, '0.0', 0),
+(505, 'Bath', 'Holders & Dispensers', 'images/bath/Holders & Dispensers/holders_and_dispensers5.jpg', 0, '0.0', 0),
+(601, 'Bath', 'Bathroom Mirrors', 'images/bath/Bathroom Mirrors/bathroom_mirror1.jpg', 0, '0.0', 0),
+(602, 'Bath', 'Bathroom Mirrors', 'images/bath/Bathroom Mirrors/bathroom_mirror2.jpg', 0, '0.0', 0),
+(603, 'Bath', 'Bathroom Mirrors', 'images/bath/Bathroom Mirrors/bathroom_mirror3.jpg', 0, '0.0', 0),
+(604, 'Bath', 'Bathroom Mirrors', 'images/bath/Bathroom Mirrors/bathroom_mirror4.jpg', 0, '0.0', 0),
+(605, 'Bath', 'Bathroom Mirrors', 'images/bath/Bathroom Mirrors/bathroom_mirror5.jpg', 0, '0.0', 0),
+(701, 'Bath', 'Bathroom Scales', 'images/bath/Bathroom Scales/bathroom_scale1.jpg', 0, '0.0', 0),
+(702, 'Bath', 'Bathroom Scales', 'images/bath/Bathroom Scales/bathroom_scale2.jpg', 0, '0.0', 0),
+(703, 'Bath', 'Bathroom Scales', 'images/bath/Bathroom Scales/bathroom_scale3.jpg', 0, '0.0', 0),
+(704, 'Bath', 'Bathroom Scales', 'images/bath/Bathroom Scales/bathroom_scale4.jpg', 0, '0.0', 0),
+(705, 'Bath', 'Bathroom Scales', 'images/bath/Bathroom Scales/bathroom_scale5.jpg', 0, '0.0', 0),
+(801, 'Bath', 'Bathroom Shelving', 'images/bath/Bathroom Shelving/bathroom_shelf1.jpg', 0, '0.0', 0),
+(802, 'Bath', 'Bathroom Shelving', 'images/bath/Bathroom Shelving/bathroom_shelf2.jpg', 0, '0.0', 0),
+(803, 'Bath', 'Bathroom Shelving', 'images/bath/Bathroom Shelving/bathroom_shelf3.jpg', 0, '0.0', 0),
+(804, 'Bath', 'Bathroom Shelving', 'images/bath/Bathroom Shelving/bathroom_shelf4.jpg', 0, '0.0', 0),
+(805, 'Bath', 'Bathroom Shelving', 'images/bath/Bathroom Shelving/bathroom_shelf5.jpg', 0, '0.0', 0),
+(901, 'Bath', 'Linen Towers & Cabinets', 'images/bath/Linen Towers & Cabinets/linens_cabinet1.jpg', 0, '0.0', 0),
+(902, 'Bath', 'Linen Towers & Cabinets', 'images/bath/Linen Towers & Cabinets/linens_cabinet2.jpg', 0, '0.0', 0),
+(903, 'Bath', 'Linen Towers & Cabinets', 'images/bath/Linen Towers & Cabinets/linens_cabinet3.jpg', 0, '0.0', 0),
+(904, 'Bath', 'Linen Towers & Cabinets', 'images/bath/Linen Towers & Cabinets/linens_cabinet4.jpg', 0, '0.0', 0),
+(905, 'Bath', 'Linen Towers & Cabinets', 'images/bath/Linen Towers & Cabinets/linens_cabinet5.jpg', 0, '0.0', 0),
+(1001, 'Bath', 'Shower Curtains & Accessories', 'images/bath/Shower Curtains & Accessories/shower_curtain1.jpg', 0, '0.0', 0),
+(1002, 'Bath', 'Shower Curtains & Accessories', 'images/bath/Shower Curtains & Accessories/shower_curtain2.jpg', 0, '0.0', 0),
+(1003, 'Bath', 'Shower Curtains & Accessories', 'images/bath/Shower Curtains & Accessories/shower_curtain3.jpg', 0, '0.0', 0),
+(1004, 'Bath', 'Shower Curtains & Accessories', 'images/bath/Shower Curtains & Accessories/shower_curtain4.jpg', 0, '0.0', 0),
+(1005, 'Bath', 'Shower Curtains & Accessories', 'images/bath/Shower Curtains & Accessories/shower_curtain5.jpg', 0, '0.0', 0),
+(1101, 'Bath', 'Shower Caddies & Hangers', 'images/bath/Shower Caddies & Hangers/shower_caddy1.jpg', 0, '0.0', 0),
+(1102, 'Bath', 'Shower Caddies & Hangers', 'images/bath/Shower Caddies & Hangers/shower_caddy2.jpg', 0, '0.0', 0),
+(1103, 'Bath', 'Shower Caddies & Hangers', 'images/bath/Shower Caddies & Hangers/shower_caddy3.jpg', 0, '0.0', 0),
+(1104, 'Bath', 'Shower Caddies & Hangers', 'images/bath/Shower Caddies & Hangers/shower_caddy4.jpg', 0, '0.0', 0),
+(1105, 'Bath', 'Shower Caddies & Hangers', 'images/bath/Shower Caddies & Hangers/shower_caddy5.jpg', 0, '0.0', 0),
+(1201, 'Bath', 'Towel Rails & Warmers', 'images/bath/Towel Rails & Warmers/towel_rail1.jpg', 0, '0.0', 0),
+(1202, 'Bath', 'Towel Rails & Warmers', 'images/bath/Towel Rails & Warmers/towel_rail2.jpg', 0, '0.0', 0),
+(1203, 'Bath', 'Towel Rails & Warmers', 'images/bath/Towel Rails & Warmers/towel_rail3.jpg', 0, '0.0', 0),
+(1204, 'Bath', 'Towel Rails & Warmers', 'images/bath/Towel Rails & Warmers/towel_rail4.jpg', 0, '0.0', 0),
+(1205, 'Bath', 'Towel Rails & Warmers', 'images/bath/Towel Rails & Warmers/towel_rail5.jpg', 0, '0.0', 0),
+(1301, 'Bedding', 'Bed Runners & Skirts', 'images/Bedding/Bed Runners & Skirts/bedrunner1.jpg', 0, '0.0', 0),
+(1302, 'Bedding', 'Bed Runners & Skirts', 'images/Bedding/Bed Runners & Skirts/bedrunner2.jpg', 0, '0.0', 0),
+(1303, 'Bedding', 'Bed Runners & Skirts', 'images/Bedding/Bed Runners & Skirts/bedrunner3.jpg', 0, '0.0', 0),
+(1304, 'Bedding', 'Bed Runners & Skirts', 'images/Bedding/Bed Runners & Skirts/bedrunner4.jpg', 0, '0.0', 0),
+(1305, 'Bedding', 'Bed Runners & Skirts', 'images/Bedding/Bed Runners & Skirts/bedrunner5.jpg', 0, '0.0', 0),
+(1401, 'Bedding', 'Bed Sheets', 'images/Bedding/Bed Sheets/bedsheet1.jpg', 0, '0.0', 0),
+(1402, 'Bedding', 'Bed Sheets', 'images/Bedding/Bed Sheets/bedsheet2.jpg', 0, '0.0', 0),
+(1403, 'Bedding', 'Bed Sheets', 'images/Bedding/Bed Sheets/bedsheet3.jpg', 0, '0.0', 0),
+(1404, 'Bedding', 'Bed Sheets', 'images/Bedding/Bed Sheets/bedsheet4.jpg', 0, '0.0', 0),
+(1405, 'Bedding', 'Bed Sheets', 'images/Bedding/Bed Sheets/bedsheet5.jpg', 0, '0.0', 0),
+(1501, 'Bedding', 'Blankets & Throws', 'images/Bedding/Blankets & Throws/blanket1.jpg', 0, '0.0', 0),
+(1502, 'Bedding', 'Blankets & Throws', 'images/Bedding/Blankets & Throws/blanket2.jpg', 0, '0.0', 0),
+(1503, 'Bedding', 'Blankets & Throws', 'images/Bedding/Blankets & Throws/blanket3.jpg', 0, '0.0', 0),
+(1504, 'Bedding', 'Blankets & Throws', 'images/Bedding/Blankets & Throws/blanket4.jpg', 0, '0.0', 0),
+(1505, 'Bedding', 'Blankets & Throws', 'images/Bedding/Blankets & Throws/blanket5.jpg', 0, '0.0', 0),
+(1601, 'Bedding', 'Comforters, Quilts & Duvets', 'images/Bedding/Comforters, Quilts & Duvets/comforter1.jpg', 0, '0.0', 0),
+(1602, 'Bedding', 'Comforters, Quilts & Duvets', 'images/Bedding/Comforters, Quilts & Duvets/comforter2.jpg', 0, '0.0', 0),
+(1603, 'Bedding', 'Comforters, Quilts & Duvets', 'images/Bedding/Comforters, Quilts & Duvets/comforter3.jpg', 0, '0.0', 0),
+(1604, 'Bedding', 'Comforters, Quilts & Duvets', 'images/Bedding/Comforters, Quilts & Duvets/comforter4.jpg', 0, '0.0', 0),
+(1605, 'Bedding', 'Comforters, Quilts & Duvets', 'images/Bedding/Comforters, Quilts & Duvets/comforter5.jpg', 0, '0.0', 0),
+(1701, 'Bedding', 'Electric Blankets', 'images/Bedding/Electric Blankets/electric_blanket1.jpg', 0, '0.0', 0),
+(1702, 'Bedding', 'Electric Blankets', 'images/Bedding/Electric Blankets/electric_blanket2.jpg', 0, '0.0', 0),
+(1703, 'Bedding', 'Electric Blankets', 'images/Bedding/Electric Blankets/electric_blanket3.jpg', 0, '0.0', 0),
+(1704, 'Bedding', 'Electric Blankets', 'images/Bedding/Electric Blankets/electric_blanket4.jpg', 0, '0.0', 0),
+(1705, 'Bedding', 'Electric Blankets', 'images/Bedding/Electric Blankets/electric_blanket5.jpg', 0, '0.0', 0),
+(1801, 'Bedding', 'Mattress Pads', 'images/Bedding/Mattress Pads/mattress_pad1.jpg', 0, '0.0', 0),
+(1802, 'Bedding', 'Mattress Pads', 'images/Bedding/Mattress Pads/mattress_pad2.jpg', 0, '0.0', 0),
+(1803, 'Bedding', 'Mattress Pads', 'images/Bedding/Mattress Pads/mattress_pad3.jpg', 0, '0.0', 0),
+(1804, 'Bedding', 'Mattress Pads', 'images/Bedding/Mattress Pads/mattress_pad4.jpg', 0, '0.0', 0),
+(1805, 'Bedding', 'Mattress Pads', 'images/Bedding/Mattress Pads/mattress_pad5.jpg', 0, '0.0', 0),
+(1901, 'Bedding', 'Pillow Cases', 'images/Bedding/Pillow Cases/pillowcase1.jpg', 0, '0.0', 0),
+(1902, 'Bedding', 'Pillow Cases', 'images/Bedding/Pillow Cases/pillowcase2.jpg', 0, '0.0', 0),
+(1903, 'Bedding', 'Pillow Cases', 'images/Bedding/Pillow Cases/pillowcase3.jpg', 0, '0.0', 0),
+(1904, 'Bedding', 'Pillow Cases', 'images/Bedding/Pillow Cases/pillowcase4.jpg', 0, '0.0', 0),
+(1905, 'Bedding', 'Pillow Cases', 'images/Bedding/Pillow Cases/pillowcase5.jpg', 0, '0.0', 0),
+(2001, 'Bedding', 'Pillow Protectors', 'images/Bedding/Pillow Protectors/pillowprotector1.jpg', 0, '0.0', 0),
+(2002, 'Bedding', 'Pillow Protectors', 'images/Bedding/Pillow Protectors/pillowprotector2.jpg', 0, '0.0', 0),
+(2003, 'Bedding', 'Pillow Protectors', 'images/Bedding/Pillow Protectors/pillowprotector3.jpg', 0, '0.0', 0),
+(2004, 'Bedding', 'Pillow Protectors', 'images/Bedding/Pillow Protectors/pillowprotector4.jpg', 0, '0.0', 0),
+(2005, 'Bedding', 'Pillow Protectors', 'images/Bedding/Pillow Protectors/pillowprotector5.jpg', 0, '0.0', 0),
+(2101, 'Bedding', 'Pillows Bolsters', 'images/Bedding/Pillows Bolsters/bolster1.jpg', 0, '0.0', 0),
+(2102, 'Bedding', 'Pillows Bolsters', 'images/Bedding/Pillows Bolsters/bolster2.jpg', 0, '0.0', 0),
+(2103, 'Bedding', 'Pillows Bolsters', 'images/Bedding/Pillows Bolsters/bolster3.jpg', 0, '0.0', 0),
+(2104, 'Bedding', 'Pillows Bolsters', 'images/Bedding/Pillows Bolsters/bolster4.jpg', 0, '0.0', 0),
+(2105, 'Bedding', 'Pillows Bolsters', 'images/Bedding/Pillows Bolsters/bolster5.jpg', 0, '0.0', 0),
+(2201, 'Furniture', 'Bedroom Furniture', 'images/furniture/Bedroom Furniture/bedroom_furniture1.jpg', 0, '0.0', 0),
+(2202, 'Furniture', 'Bedroom Furniture', 'images/furniture/Bedroom Furniture/bedroom_furniture2.jpg', 0, '0.0', 0),
+(2203, 'Furniture', 'Bedroom Furniture', 'images/furniture/Bedroom Furniture/bedroom_furniture3.jpg', 0, '0.0', 0),
+(2204, 'Furniture', 'Bedroom Furniture', 'images/furniture/Bedroom Furniture/bedroom_furniture4.jpg', 0, '0.0', 0),
+(2205, 'Furniture', 'Bedroom Furniture', 'images/furniture/Bedroom Furniture/bedroom_furniture5.jpg', 0, '0.0', 0),
+(2301, 'Furniture', 'Chairs', 'images/furniture/Chairs/chair1.jpg', 0, '0.0', 0),
+(2302, 'Furniture', 'Chairs', 'images/furniture/Chairs/chair2.jpg', 0, '0.0', 0),
+(2303, 'Furniture', 'Chairs', 'images/furniture/Chairs/chair3.jpg', 0, '0.0', 0),
+(2304, 'Furniture', 'Chairs', 'images/furniture/Chairs/chair4.jpg', 0, '0.0', 0),
+(2305, 'Furniture', 'Chairs', 'images/furniture/Chairs/chair5.jpg', 0, '0.0', 0),
+(2401, 'Furniture', 'Gaming Furniture', 'images/furniture/Gaming Furniture/gaming_furniture1.jpg', 0, '0.0', 0),
+(2402, 'Furniture', 'Gaming Furniture', 'images/furniture/Gaming Furniture/gaming_furniture2.jpg', 0, '0.0', 0),
+(2403, 'Furniture', 'Gaming Furniture', 'images/furniture/Gaming Furniture/gaming_furniture3.jpg', 0, '0.0', 0),
+(2404, 'Furniture', 'Gaming Furniture', 'images/furniture/Gaming Furniture/gaming_furniture4.jpg', 0, '0.0', 0),
+(2405, 'Furniture', 'Gaming Furniture', 'images/furniture/Gaming Furniture/gaming_furniture5.jpg', 0, '0.0', 0),
+(2501, 'Furniture', 'Home Office Furniture', 'images/furniture/Home Office Furniture/home_furniture1.jpg', 0, '0.0', 0),
+(2502, 'Furniture', 'Home Office Furniture', 'images/furniture/Home Office Furniture/home_furniture2.jpg', 0, '0.0', 0),
+(2503, 'Furniture', 'Home Office Furniture', 'images/furniture/Home Office Furniture/home_furniture3.jpg', 0, '0.0', 0),
+(2504, 'Furniture', 'Home Office Furniture', 'images/furniture/Home Office Furniture/home_furniture4.jpg', 0, '0.0', 0),
+(2505, 'Furniture', 'Home Office Furniture', 'images/furniture/Home Office Furniture/home_furniture5.jpg', 0, '0.0', 0),
+(2601, 'Furniture', 'Kids Tables & Sets', 'images/furniture/Kids Tables & Sets/table_chairs1.jpg', 0, '0.0', 0),
+(2602, 'Furniture', 'Kids Tables & Sets', 'images/furniture/Kids Tables & Sets/table_chairs2.jpg', 0, '0.0', 0),
+(2603, 'Furniture', 'Kids Tables & Sets', 'images/furniture/Kids Tables & Sets/table_chairs3.jpg', 0, '0.0', 0),
+(2604, 'Furniture', 'Kids Tables & Sets', 'images/furniture/Kids Tables & Sets/table_chairs4.jpg', 0, '0.0', 0),
+(2605, 'Furniture', 'Kids Tables & Sets', 'images/furniture/Kids Tables & Sets/table_chairs5.jpg', 0, '0.0', 0),
+(2701, 'Furniture', 'Kitchen & Dining Furniture', 'images/furniture/Kitchen & Dining Furniture/kitchen_dining1.jpg', 0, '0.0', 0),
+(2702, 'Furniture', 'Kitchen & Dining Furniture', 'images/furniture/Kitchen & Dining Furniture/kitchen_dining2.jpg', 0, '0.0', 0),
+(2703, 'Furniture', 'Kitchen & Dining Furniture', 'images/furniture/Kitchen & Dining Furniture/kitchen_dining3.jpg', 0, '0.0', 0),
+(2704, 'Furniture', 'Kitchen & Dining Furniture', 'images/furniture/Kitchen & Dining Furniture/kitchen_dining4.jpg', 0, '0.0', 0),
+(2705, 'Furniture', 'Kitchen & Dining Furniture', 'images/furniture/Kitchen & Dining Furniture/kitchen_dining5.jpg', 0, '0.0', 0),
+(2801, 'Furniture', 'Living Room Furniture', 'images/furniture/Living Room Furniture/living_room1.jpg', 0, '0.0', 0),
+(2802, 'Furniture', 'Living Room Furniture', 'images/furniture/Living Room Furniture/living_room2.jpg', 0, '0.0', 0),
+(2803, 'Furniture', 'Living Room Furniture', 'images/furniture/Living Room Furniture/living_room3.jpg', 0, '0.0', 0),
+(2804, 'Furniture', 'Living Room Furniture', 'images/furniture/Living Room Furniture/living_room4.jpg', 0, '0.0', 0),
+(2805, 'Furniture', 'Living Room Furniture', 'images/furniture/Living Room Furniture/living_room5.jpg', 0, '0.0', 0),
+(2901, 'Furniture', 'Mattresses', 'images/furniture/Mattresses/matress1.jpg', 0, '0.0', 0),
+(2902, 'Furniture', 'Mattresses', 'images/furniture/Mattresses/matress2.jpg', 0, '0.0', 0),
+(2903, 'Furniture', 'Mattresses', 'images/furniture/Mattresses/matress3.jpg', 0, '0.0', 0),
+(2904, 'Furniture', 'Mattresses', 'images/furniture/Mattresses/matress4.jpg', 0, '0.0', 0),
+(2905, 'Furniture', 'Mattresses', 'images/furniture/Mattresses/matress5.jpg', 0, '0.0', 0),
+(3001, 'Furniture', 'Media & TV Storage', 'images/furniture/Media & TV Storage/tv1.jpg', 0, '0.0', 0),
+(3002, 'Furniture', 'Media & TV Storage', 'images/furniture/Media & TV Storage/tv2.jpg', 0, '0.0', 0),
+(3003, 'Furniture', 'Media & TV Storage', 'images/furniture/Media & TV Storage/tv3.jpg', 0, '0.0', 0),
+(3004, 'Furniture', 'Media & TV Storage', 'images/furniture/Media & TV Storage/tv4.jpg', 0, '0.0', 0),
+(3005, 'Furniture', 'Media & TV Storage', 'images/furniture/Media & TV Storage/tv5.jpg', 0, '0.0', 0),
+(3101, 'Furniture', 'Outdoor Furniture', 'images/furniture/Outdoor Furniture/outdoor1.jpg', 0, '0.0', 0),
+(3102, 'Furniture', 'Outdoor Furniture', 'images/furniture/Outdoor Furniture/outdoor1.jpg', 0, '0.0', 0),
+(3103, 'Furniture', 'Outdoor Furniture', 'images/furniture/Outdoor Furniture/outdoor1.jpg', 0, '0.0', 0),
+(3104, 'Furniture', 'Outdoor Furniture', 'images/furniture/Outdoor Furniture/outdoor1.jpg', 0, '0.0', 0),
+(3105, 'Furniture', 'Outdoor Furniture', 'images/furniture/Outdoor Furniture/outdoor1.jpg', 0, '0.0', 0),
+(3201, 'Furniture', 'Sofas', 'images/furniture/Sofas/sofa1.jpg', 0, '0.0', 0),
+(3202, 'Furniture', 'Sofas', 'images/furniture/Sofas/sofa2.jpg', 0, '0.0', 0),
+(3203, 'Furniture', 'Sofas', 'images/furniture/Sofas/sofa3.jpg', 0, '0.0', 0),
+(3204, 'Furniture', 'Sofas', 'images/furniture/Sofas/sofa4.jpg', 0, '0.0', 0),
+(3205, 'Furniture', 'Sofas', 'images/furniture/Sofas/sofa5.jpg', 0, '0.0', 0),
+(3301, 'Furniture', 'Wardrobes', 'images/furniture/Wardrobes/wardrobe1.jpg', 0, '0.0', 0),
+(3302, 'Furniture', 'Wardrobes', 'images/furniture/Wardrobes/wardrobe2.jpg', 0, '0.0', 0),
+(3303, 'Furniture', 'Wardrobes', 'images/furniture/Wardrobes/wardrobe3.jpg', 0, '0.0', 0),
+(3304, 'Furniture', 'Wardrobes', 'images/furniture/Wardrobes/wardrobe4.jpg', 0, '0.0', 0),
+(3305, 'Furniture', 'Wardrobes', 'images/furniture/Wardrobes/wardrobe5.jpg', 0, '0.0', 0),
+(3401, 'Storage and Organization', 'Compression Bags', 'images/Storage & Organization/Compression Bags/compression1.jpg', 0, '0.0', 0),
+(3402, 'Storage and Organization', 'Compression Bags', 'images/Storage & Organization/Compression Bags/compression2.jpg', 0, '0.0', 0),
+(3403, 'Storage and Organization', 'Compression Bags', 'images/Storage & Organization/Compression Bags/compression3.jpg', 0, '0.0', 0),
+(3404, 'Storage and Organization', 'Compression Bags', 'images/Storage & Organization/Compression Bags/compression4.jpg', 0, '0.0', 0),
+(3405, 'Storage and Organization', 'Compression Bags', 'images/Storage & Organization/Compression Bags/compression5.jpg', 0, '0.0', 0),
+(3501, 'Storage and Organization', 'Deck Boxes & Balcony Storage', 'images/Storage & Organization/Deck Boxes & Balcony Storage/deck_box1.jpg', 0, '0.0', 0),
+(3502, 'Storage and Organization', 'Deck Boxes & Balcony Storage', 'images/Storage & Organization/Deck Boxes & Balcony Storage/deck_box2.jpg', 0, '0.0', 0),
+(3503, 'Storage and Organization', 'Deck Boxes & Balcony Storage', 'images/Storage & Organization/Deck Boxes & Balcony Storage/deck_box3.jpg', 0, '0.0', 0),
+(3504, 'Storage and Organization', 'Deck Boxes & Balcony Storage', 'images/Storage & Organization/Deck Boxes & Balcony Storage/deck_box4.jpg', 0, '0.0', 0),
+(3505, 'Storage and Organization', 'Deck Boxes & Balcony Storage', 'images/Storage & Organization/Deck Boxes & Balcony Storage/deck_box5.jpg', 0, '0.0', 0),
+(3701, 'Storage and Organization', 'Medicine & First Aid Storage', 'images/Storage & Organization/Medicine & First Aid Storage/first_aid1.jpg', 0, '0.0', 0),
+(3702, 'Storage and Organization', 'Medicine & First Aid Storage', 'images/Storage & Organization/Medicine & First Aid Storage/first_aid2.jpg', 0, '0.0', 0),
+(3703, 'Storage and Organization', 'Medicine & First Aid Storage', 'images/Storage & Organization/Medicine & First Aid Storage/first_aid3.jpg', 0, '0.0', 0),
+(3704, 'Storage and Organization', 'Medicine & First Aid Storage', 'images/Storage & Organization/Medicine & First Aid Storage/first_aid4.jpg', 0, '0.0', 0),
+(3705, 'Storage and Organization', 'Medicine & First Aid Storage', 'images/Storage & Organization/Medicine & First Aid Storage/first_aid5.jpg', 0, '0.0', 0),
+(3801, 'Storage and Organization', 'Shoe Organisers', 'images/Storage & Organization/Shoe Organisers/shoe_organizer1.jpg', 0, '0.0', 0),
+(3802, 'Storage and Organization', 'Shoe Organisers', 'images/Storage & Organization/Shoe Organisers/shoe_organizer2.jpg', 0, '0.0', 0),
+(3803, 'Storage and Organization', 'Shoe Organisers', 'images/Storage & Organization/Shoe Organisers/shoe_organizer3.jpg', 0, '0.0', 0),
+(3804, 'Storage and Organization', 'Shoe Organisers', 'images/Storage & Organization/Shoe Organisers/shoe_organizer4.jpg', 0, '0.0', 0),
+(3805, 'Storage and Organization', 'Shoe Organisers', 'images/Storage & Organization/Shoe Organisers/shoe_organizer5.jpg', 0, '0.0', 0),
+(3901, 'Storage and Organization', 'Space Savers', 'images/Storage & Organization/Space Savers/space_saver1.jpg', 0, '0.0', 0),
+(3902, 'Storage and Organization', 'Space Savers', 'images/Storage & Organization/Space Savers/space_saver2.jpg', 0, '0.0', 0),
+(3903, 'Storage and Organization', 'Space Savers', 'images/Storage & Organization/Space Savers/space_saver3.jpg', 0, '0.0', 0),
+(3904, 'Storage and Organization', 'Space Savers', 'images/Storage & Organization/Space Savers/space_saver4.jpg', 0, '0.0', 0),
+(3905, 'Storage and Organization', 'Space Savers', 'images/Storage & Organization/Space Savers/space_saver5.jpg', 0, '0.0', 0),
+(4001, 'Storage and Organization', 'Storage Bins & Baskets', 'images/Storage & Organization/Storage Bins & Baskets/storage_bin1.jpg', 0, '0.0', 0),
+(4002, 'Storage and Organization', 'Storage Bins & Baskets', 'images/Storage & Organization/Storage Bins & Baskets/storage_bin2.jpg', 0, '0.0', 0),
+(4003, 'Storage and Organization', 'Storage Bins & Baskets', 'images/Storage & Organization/Storage Bins & Baskets/storage_bin3.jpg', 0, '0.0', 0),
+(4004, 'Storage and Organization', 'Storage Bins & Baskets', 'images/Storage & Organization/Storage Bins & Baskets/storage_bin4.jpg', 0, '0.0', 0),
+(4005, 'Storage and Organization', 'Storage Bins & Baskets', 'images/Storage & Organization/Storage Bins & Baskets/storage_bin5.jpg', 0, '0.0', 0),
+(4101, 'Storage and Organization', 'Wardrobe Organisers', 'images/Storage & Organization/Wardrobe Organisers/wardrobe_org1.jpg', 0, '0.0', 0),
+(4102, 'Storage and Organization', 'Wardrobe Organisers', 'images/Storage & Organization/Wardrobe Organisers/wardrobe_org2.jpg', 0, '0.0', 0),
+(4103, 'Storage and Organization', 'Wardrobe Organisers', 'images/Storage & Organization/Wardrobe Organisers/wardrobe_org3.jpg', 0, '0.0', 0),
+(4104, 'Storage and Organization', 'Wardrobe Organisers', 'images/Storage & Organization/Wardrobe Organisers/wardrobe_org4.jpg', 0, '0.0', 0),
+(4105, 'Storage and Organization', 'Wardrobe Organisers', 'images/Storage & Organization/Wardrobe Organisers/wardrobe_org5.jpg', 0, '0.0', 0),
+(4201, 'Laundry and Cleaning Equipment', 'Brooms, Mops & Sweepers', 'images/Laundry & Cleaning Equipment/Brooms, Mops & Sweepers/broom_etc1.jpg', 0, '0.0', 0),
+(4202, 'Laundry and Cleaning Equipment', 'Brooms, Mops & Sweepers', 'images/Laundry & Cleaning Equipment/Brooms, Mops & Sweepers/broom_etc2.jpg', 0, '0.0', 0),
+(4203, 'Laundry and Cleaning Equipment', 'Brooms, Mops & Sweepers', 'images/Laundry & Cleaning Equipment/Brooms, Mops & Sweepers/broom_etc3.jpg', 0, '0.0', 0),
+(4204, 'Laundry and Cleaning Equipment', 'Brooms, Mops & Sweepers', 'images/Laundry & Cleaning Equipment/Brooms, Mops & Sweepers/broom_etc4.jpg', 0, '0.0', 0),
+(4205, 'Laundry and Cleaning Equipment', 'Brooms, Mops & Sweepers', 'images/Laundry & Cleaning Equipment/Brooms, Mops & Sweepers/broom_etc5.jpg', 0, '0.0', 0),
+(4301, 'Laundry and Cleaning Equipment', 'Cleaning Buckets & Tubs', 'images/Laundry & Cleaning Equipment/Cleaning Buckets & Tubs/bucket1.jpg', 0, '0.0', 0),
+(4302, 'Laundry and Cleaning Equipment', 'Cleaning Buckets & Tubs', 'images/Laundry & Cleaning Equipment/Cleaning Buckets & Tubs/bucket2.jpg', 0, '0.0', 0),
+(4303, 'Laundry and Cleaning Equipment', 'Cleaning Buckets & Tubs', 'images/Laundry & Cleaning Equipment/Cleaning Buckets & Tubs/bucket3.jpg', 0, '0.0', 0),
+(4304, 'Laundry and Cleaning Equipment', 'Cleaning Buckets & Tubs', 'images/Laundry & Cleaning Equipment/Cleaning Buckets & Tubs/bucket4.jpg', 0, '0.0', 0),
+(4305, 'Laundry and Cleaning Equipment', 'Cleaning Buckets & Tubs', 'images/Laundry & Cleaning Equipment/Cleaning Buckets & Tubs/bucket5.jpg', 0, '0.0', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -618,8 +850,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `contact`, `password`) VALUES
+(4070, 'Intong', 'Roger', 'intongroger@gmail.com', '091212345', '827ccb0eea8a706c4c34a16891f84e7b'),
 (6829, 'Elim', 'Daisy May', 'daisy@email.com', '09232756236', '25d55ad283aa400af464c76d713c07ad'),
-(7349, 'Abejar', 'Jayharron', 'jay@gmail.com', '09123123456', 'ed848bc1f2251e8d124099fe088f2c27'),
+(7349, 'Abejar', 'Jayharron', 'jay@gmail.com', '09123123456', 'a106318aa4f97ed7a00da3f46f24352e'),
 (9542, 'Cuico', 'Harold', 'harold@gmail.com', '09123456789', 'c57f431343f100b441e268cc12babc34'),
 (18567, 'hotel', 'india', 'jay@gmail.com', '09123123456', 'e10adc3949ba59abbe56e057f20f883e'),
 (19775, 'Morales', 'Jonathan Kent', 'papakent@gmail.com', '09123123556', '3d8fb924f7aed7fa5300f225a58bc8fc');
@@ -641,6 +874,12 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`PROD_ID`);
+
+--
+-- Indexes for table `product_info`
+--
+ALTER TABLE `product_info`
+  ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
 --
 -- Indexes for table `users`
@@ -668,6 +907,12 @@ ALTER TABLE `cart`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`CUSTOMER_ID`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`PROD_ID`) REFERENCES `product` (`PROD_ID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `product_info`
+--
+ALTER TABLE `product_info`
+  ADD CONSTRAINT `product_info_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `product` (`PROD_ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
