@@ -18,7 +18,7 @@
               <a href="{{ url_for('home') }}"><img src="static/images/LandingPage/1a.png" class="logo"></a>
             </div>
             <div style="margin-left: 100px; margin-right: 100px;">
-              <form>
+              <form method="POST" action="/search">
                 <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="70" />
                 <button type="submit" style="border: none; padding: 10px; width: 50px; background-color: #f9f9f9; cursor: pointer;"><i class='fa fa-search'></i></button>
               </form>

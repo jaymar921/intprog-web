@@ -49,3 +49,12 @@ def getProductInfo(prod_id: int):
     cursor.close()
     return utility.ProductInfo(DATA[0]['PRODUCT_ID'], DATA[0]['PRODUCT_CATEGORY'], DATA[0]['SUB_CATEGORY'],
                                DATA[0]['PICTURE_LINK'], DATA[0]['SOLD'], DATA[0]['RATING'], DATA[0]['BUY_RATE'])
+
+
+def getProductBySearch(search: str):
+    sql: str = f"SELECT * FROM `product` where prod_name like '%{search}%'"
+    cursor = database.cursor(dictionary=True)
+    cursor.execute(sql)
+    DATA: list = cursor.fetchall()
+    cursor.close()
+    return DATA

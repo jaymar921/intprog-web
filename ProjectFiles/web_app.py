@@ -11,17 +11,20 @@ app.secret_key = '39cm85yu234m98'
 # go to landing page
 @app.route("/")
 def landing_page():
+    session['username'] = ''
     return render_template("Navigation/LandingPage.html")
 
 
 @app.route("/home")
 def home():
+    session['username'] = ''
     return render_template("Navigation/LandingPage.html", account=session['username'])
 
 
 # calls the login.html, asks the user to enter email and password
 @app.route("/login")
 def login():
+    session['username'] = ''
     return render_template("Navigation/Login.html")
 
 
@@ -31,7 +34,7 @@ def loginAccount():
     print(hashString(request.form["psw"]))
     if getAccount(request.form["email"], hashString(request.form["psw"])):
         session['username'] = request.form["email"]
-        return render_template("LandingPage.html", account=session['username'])
+        return render_template("Navigation/LandingPage.html", account=session['username'])
     else:
         return "invalid"
 
@@ -811,6 +814,14 @@ def registerAccount():
     register_account(randint(0, 19999), data['lastname'], data['firstname'], data['email'], data['contact'],
                      hashString(data['password']))
     return redirect(url_for("login"))
+
+
+@app.route("/search", methods=['POST'])
+def searchProduct():
+    search: str = request.form['search']
+    FOUND = database.getProductBySearch(search)
+    print(FOUND)
+    return redirect(f"/product/{utility.parseSubCatLocation(FOUND[0]['PROD_ID'])}")
 
 
 if __name__ == '__main__':
