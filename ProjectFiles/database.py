@@ -19,9 +19,9 @@ def register_account(acc_id: int, lastname: str, firstname: str, email: str, con
 
 
 def getAccount(email: str, password: str) -> bool:
-    sql: str = f"SELECT * FROM `users` WHERE `email`='{email}' AND `password`='{password}';"
+    sql: str = f"SELECT * FROM `users` WHERE `email`=%s AND `password`=%s;"
     cursor = database.cursor(dictionary=True)
-    cursor.execute(sql)
+    cursor.execute(sql, (email, password))
     DATA: list = cursor.fetchall()
     return len(DATA) > 0
 
