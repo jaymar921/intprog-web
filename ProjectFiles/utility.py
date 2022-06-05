@@ -20,6 +20,14 @@ class ProductInfo:
         self.buy_rate = buy_rate
 
 
+class User:
+    user_id: int
+    lastname: str
+    firstname: str
+    email: str
+    contact: str
+
+
 def parseCatLocation(category: str):
     if category == 'Bath':
         return 'bath'

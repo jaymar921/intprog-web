@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="{{ url_for('static',filename='item.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='category_style.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
 </head>
@@ -25,11 +26,22 @@
             class='fa fa-search'></i></button>
       </form>
     </div>
-    <div class="w3-container" style="float: right;  width: 15%;">
+    <div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
 
-      <i class="fa-regular fa-heart fa-2x" style="margin-right: 40px; cursor: pointer;"></i>
-      <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 40px;"></i>
-      <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+      <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
+      <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;" onclick="location.href='/cart'"></i>
+      <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;"></i>
+      <div class="dropdown">
+        <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+        <div class="dropdown-content">
+          <a href="#">Account</a>
+          <a href="/login">Login</a>
+          <a href="/register">Signup</a>
+        </div>
+        {% if account != "" %}
+            <a style="font-size:0.8em;">{{account}}</a>
+          {% endif %}
+      </div>
     </div>
   </div>
   <div class="categories">
@@ -137,7 +149,7 @@
           </div>
           <br>
           <div class="buttons">
-            <button class="addCart">Add to Cart</button>
+            <button class="addCart" onclick="location.href='/add_to_cart/{{data[0].prod_id}}'" style="cursor: pointer;">Add to Cart</button>
             <button class="buy">Buy Now</button>
 
           </div>

@@ -74,8 +74,8 @@
 
             <!--FIRST ITEM-->
               {% for x in range(data|length) %}
-                <div class="category-content w3-card-4" onclick="location.href='/productListing/{{data[x].prod_id}}'" style="cursor: pointer;">
-                    <div class="category-content-pic">
+                <div class="category-content w3-card-4" >
+                    <div class="category-content-pic" onclick="location.href='/productListing/{{data[x].prod_id}}'" style="cursor: pointer;">
                       <img src = "/static/{{info[x].photo_link}}">
                     </div>
                     <div class="category-content-desc">

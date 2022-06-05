@@ -25,18 +25,19 @@
             </div>
             <div class="w3-container" style="float: right;  width: 15%;">
 
-              <i class="fa-regular fa-heart fa-2x" style="margin-right: 40px; cursor: pointer;"></i>
-              <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 40px;"></i>
-                                            <!-- Copy Here -->
-              <div class="dropdown" >
-                <i class="fa fa-user fa-2x"  style="cursor: pointer;"></i>
+              <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
+              <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;" onclick="location.href='/cart'"></i>
+              <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;" onclick="location.href='/notification'"></i>
+              <div class="dropdown">
+                <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
                 <div class="dropdown-content">
-                    <a href="login">Login</a>
-                    <a href="register">Signup</a>
+                  <a href="#">Account</a>
+                  <a href="/login">Login</a>
+                  <a href="/register">Signup</a>
                 </div>
                 {% if account != "" %}
                     <a style="font-size:0.8em;">{{account}}</a>
-                {% endif %}
+                  {% endif %}
             </div>
                 <!-- End -->
             </div>

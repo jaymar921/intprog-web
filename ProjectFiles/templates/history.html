@@ -6,14 +6,14 @@
         <title>History</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="history.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='history.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="top-nav">
-            <div>
-              <img src="1a.png" class="logo">
+            <div onclick="location.href='{{ url_for('home') }}'" style="cursor: pointer">
+              <img src="static/images/LandingPage/1a.png" class="logo">
             </div>
             <div style="margin-left: 100px; margin-right: 100px;">
               <form>
@@ -24,16 +24,18 @@
             <div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
       
               <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
-              <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;"></i>
-              <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;"></i>
+              <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;" onclick="location.href='/cart'"></i>
+              <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;" onclick="location.href='/notification'"></i>
               <div class="dropdown">
                 <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
                 <div class="dropdown-content">
                   <a href="#">Account</a>
-                  <a href="#">Login</a>
-                  <a href="#">Signup</a>
-                  <a href="#">Logout</a>
+                  <a href="/login">Login</a>
+                  <a href="/register">Signup</a>
                 </div>
+                {% if account != "" %}
+                    <a style="font-size:0.8em;">{{account}}</a>
+                  {% endif %}
               </div>
             </div>
           </div>
@@ -66,13 +68,13 @@
                 <tr>
                   <th>Transact ID</th>
                   <th colspan="2">Product</th>
-                  <th>Variation</th>
                   <th>Unit Price</th>
                   <th>Quantity</th>
                   <th>Total Price</th>
                   <th>Mode of Payment</th>
                   <th>Date of Purchase</th>
                 </tr>
+
 
                 <!--FIRST ITEM-->
                 <tr>
@@ -83,29 +85,13 @@
                     </div>
                   </td>
                   <td style="text-align: left;">Item 1 Description</td>
-                  <td>Gray</td>
                   <td>₱ 100.00</td>
                   <td>1</td>
                   <td>₱ 100.00</td>
                   <td>Cash On Delivery</td>
                   <td>2022/06/25</td>
                 </tr>
-                <!--SECOND ITEM-->
-                <tr>
-                  <td>#2647C1</td>
-                  <td>
-                    <div class="item-content-pic">
-                    <img src="bath.jpg">
-                    </div>
-                  </td>
-                  <td style="text-align: left;">Item 2 Description</td>
-                  <td>White</td>
-                  <td>₱ 200.00</td>
-                  <td>1</td>
-                  <td>₱ 200.00</td>
-                  <td>Cash On Delivery</td>
-                  <td>2022/06/25</td>
-                </tr>
+
 
               </table>
             </div>

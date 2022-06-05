@@ -17,7 +17,6 @@ def landing_page():
 
 @app.route("/home")
 def home():
-    session['username'] = ''
     return render_template("Navigation/LandingPage.html", account=session['username'])
 
 
@@ -58,6 +57,69 @@ def productListing(prod: int):
 @app.route("/bath")
 def bath():
     return render_template("Categories/bath.html", account=session['username'])
+
+
+@app.route("/cart")
+def cart():
+    user: utility.User = database.getAccountByEmail(session['username'])
+
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        products: list = []
+        info: list = []
+        CART = database.getCart(user.user_id)
+        total: int = 0
+        for x in CART:
+            products.append(database.getProduct(x['PROD_ID']))
+            info.append(database.getProductInfo(x['PROD_ID']))
+            total = total + database.getProduct(x['PROD_ID']).price
+        return render_template("addToCart.html", account=session['username'], prod=products, info=info, total=total,
+                               size=len(products))
+
+
+@app.route("/delete_cart_item/<prod_id>")
+def deleteCart(prod_id: str):
+    user: utility.User = database.getAccountByEmail(session['username'])
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        database.removeCart(user.user_id, int(prod_id))
+        return redirect(url_for('cart'))
+
+
+@app.route("/notification")
+def notification():
+    return render_template("notif.html", account=session['username'])
+
+
+@app.route("/history")
+def history():
+    return render_template("history.html", account=session['username'])
+
+
+@app.route("/purchases")
+def purchases():
+    return render_template("myPurchases.html", account=session['username'])
+
+
+@app.route("/checkout")
+def checkout():
+    user: utility.User = database.getAccountByEmail(session['username'])
+
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        products: list = []
+        info: list = []
+        CART = database.getCart(user.user_id)
+        total: int = 0
+        for x in CART:
+            products.append(database.getProduct(x['PROD_ID']))
+            info.append(database.getProductInfo(x['PROD_ID']))
+            total = total + database.getProduct(x['PROD_ID']).price
+        return render_template('checkout.html', account=session['username'], prod=products, info=info, total=total,
+                               size=len(products))
 
 
 # render product
@@ -799,6 +861,16 @@ def register():
     return render_template("Navigation/registration.html", remark="")
 
 
+# add to cart
+@app.route("/add_to_cart/<prod>")
+def addToCart(prod: str):
+    user: utility.User = database.getAccountByEmail(session['username'])
+    if user is None:
+        return redirect(url_for('login'))
+    database.addToCart(session['username'], int(prod))
+    return redirect(f"/productListing/{prod}")
+
+
 # retrieves the data from registration form
 @app.route("/register_account", methods=["POST"])
 def registerAccount():
@@ -819,6 +891,14 @@ def registerAccount():
 @app.route("/search", methods=['POST'])
 def searchProduct():
     search: str = request.form['search']
+    FOUND = database.getProductBySearch(search)
+    print(FOUND)
+    return redirect(f"/product/{utility.parseSubCatLocation(FOUND[0]['PROD_ID'])}")
+
+
+@app.route("/search/<prod>")
+def searchProductByUrl(prod: str):
+    search: str = prod
     FOUND = database.getProductBySearch(search)
     print(FOUND)
     return redirect(f"/product/{utility.parseSubCatLocation(FOUND[0]['PROD_ID'])}")
