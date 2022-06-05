@@ -24,7 +24,7 @@ def home():
 @app.route("/login")
 def login():
     session['username'] = ''
-    return render_template("Navigation/Login.html")
+    return render_template("Navigation/Login.html", remark="")
 
 
 # retrieves data from login form, check if account exist in database
@@ -35,8 +35,8 @@ def loginAccount():
         session['username'] = request.form["email"]
         return render_template("Navigation/LandingPage.html", account=session['username'])
     else:
-        return "invalid"
-
+        return render_template("Navigation/Login.html", remark="Incorrect Email or Password")
+# ===============================================================================================
 
 # render bathrobes
 @app.route("/productListing/<prod>")
