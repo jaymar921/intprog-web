@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="top-nav">
+    <div>
+      <img src="1a.png" class="logo">
+    </div>
+    <div style="margin-left: 100px; margin-right: 100px;">
+      <form>
+        <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="80" />
+        <button type="submit"
+          style="border: none; padding: 10px; width: 50px; background-color: #f9f9f9; cursor: pointer;"><i
+            class='fa fa-search'></i></button>
+      </form>
+    </div>
+    <div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
+
+      <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
+      <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;"></i>
+      <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;"></i>
+      <div class="dropdown">
+        <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+        <div class="dropdown-content">
+          <a href="#">Account</a>
+          <a href="#">Login</a>
+          <a href="#">Signup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+    <span style="margin-left: 190px;">
+      <a href="#" class="upper-link" style="color: #4B8D2F">Home </a> |
+      <a href="#" class="upper-link" style="color: #EE4D2D">My Shopping Cart</a>
+    </span>
+  </div>
+  <br />
+  <table class="prod-list">
+    <tr>
+      <th style="width: 80px;"></th>
+      <th colspan="2" style="text-align: left; padding-left: 16px;">Product</th>
+      <th></th>
+      <th style="width: 200px;">Unit Price</th>
+      <th style="width: 160px;">Quantity</th>
+      <th style="width: 200px;">Total Price</th>
+      <th style="width: 200px;">Action</th>
+    </tr>
+  </table>
+
+  <br>
+
+  <table class="prod-list">
+    <!--FIRST ITEM-->
+    <tr>
+      <td class="center" style="width: 80px;">
+        <form action="#">
+          <input type="checkbox" class="box" id="#" name="#" value="#">
+        </form>
+      </td>
+      <td style="width: 120px;">
+        <div class="other-content-pic">
+          <img src="bath.jpg">
+        </div>
+      </td>
+      <td style="text-align: left;">
+        Item 1 Description
+      </td>
+      <td class="center">
+        Gray
+      </td>
+      <td class="center" style="width: 200px;">
+        ₱ 100.00
+      </td>
+      <td class="center" style="width: 50px;">
+        <div class="counter">
+          <span class="down" onClick='decreaseCount(event, this)'>-</span>
+          <input type="text" style="height: 40px;" value="1">
+          <span class="up" onClick='increaseCount(event, this)'>+</span>
+        </div>
+        <script type="text/javascript">
+          function increaseCount(a, b) {
+            var input = b.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+          }
+          function decreaseCount(a, b) {
+            var input = b.nextElementSibling;
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+              value = isNaN(value) ? 0 : value;
+              value--;
+              input.value = value;
+            }
+          }
+        </script>
+      </td>
+      <td class="center" style="width: 200px; font-weight: bold; color: #EE4D2D">
+        ₱ 100.00
+      </td>
+      <td class="center" style="width: 200px;">
+        <span style="color: red; font-weight: bold;"><a href="#">Delete</a></span><br />
+        <!--Place functionality for the items-->
+        <span style="color: green; font-weight: bold;"><a href="#">Find Similar</a></span>
+      </td>
+    </tr>
+
+    <!--SECOND ITEM-->
+    <tr>
+      <td class="center">
+        <form action="#">
+          <input type="checkbox" class="box" id="#" name="#" value="#">
+        </form>
+      </td>
+      <td style="width: 120px;">
+        <div class="other-content-pic">
+          <img src="bath.jpg">
+        </div>
+      </td>
+      <td style="text-align: left;">
+        Item 2 Description
+      </td>
+      <td class="center">
+        White
+      </td>
+      <td class="center">
+        ₱ 200.00
+      </td>
+      <td class="center" style="width: 50px;">
+        <div class="counter">
+          <span class="down" onClick='decreaseCount(event, this)'>-</span>
+          <input type="text" style="height: 40px;" value="1">
+          <span class="up" onClick='increaseCount(event, this)'>+</span>
+        </div>
+        <script type="text/javascript">
+          function increaseCount(a, b) {
+            var input = b.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+          }
+          function decreaseCount(a, b) {
+            var input = b.nextElementSibling;
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+              value = isNaN(value) ? 0 : value;
+              value--;
+              input.value = value;
+            }
+          }
+        </script>
+      </td>
+      <td class="center" style="font-weight: bold; color: #EE4D2D">
+        ₱ 200.00
+      </td>
+      <td class="center">
+        <span style="color: red; font-weight: bold; "><a href="#">Delete</a></span><br />
+        <!--Place functionality for the item-->
+        <span style="color: green; font-weight: bold;"><a href="#">Find Similar</a></span>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="center">
+        <i class="fa fa-truck fa-2x" aria-hidden="true"></i>
+      </td>
+      <td colspan="2">
+        Free shipping with the minimum order of P10,000 
+        <span style="color: skyblue; cursor: pointer;">Learn More</span>
+      </td>
+      <td >
+        
+      </td>
+      <td></td><td></td><td></td><td></td><!--Leave blank-->
+    </tr>
+
+  </table>
+  <!--Checkout part-->
+  <div class="check-out w3-card-4">
+    <div class="check-out-top">
+      Shopping Cart Items
+    </div>
+    <div class="check-out-bot ">
+        <table class="overall">
+          <tr>
+            <td style="width: 35px;">
+              <form action="#">
+                <input type="checkbox" class="box" id="#" name="#" value="#">
+              </form>
+            </td>
+            <td style="font-weight: bold;">
+              Select All
+            </td>
+            <td style="font-weight: bold; color: red;"> 
+              <a href="#">Delete Selected</a>
+            </td>
+            <td style="font-weight: bold; color: #4B8D2F;">
+              <a href="#">Move to My Likes</a>
+            </td>
+            <td style="text-align: right;">
+              Total (2 items):
+            </td>
+            <td style="color: #EE4D2D; font-weight: bold; font-size: 25px; width: 220px;">
+              ₱ 300.00
+            </td>
+            <td>
+              <button class="checkout-btn">Check out</button>
+            </td>
+          </tr>
+        </table>
+    </div>
+  </div>
+</body>
+
+</html>
