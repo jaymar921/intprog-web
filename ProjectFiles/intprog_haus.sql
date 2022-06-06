@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2022 at 01:09 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: Jun 06, 2022 at 05:53 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,6 +41,18 @@ INSERT INTO `cart` (`ID`, `CUSTOMER_ID`, `PROD_ID`) VALUES
 (14, 7349, 402),
 (25, 7349, 2402),
 (26, 7349, 1302);
+
+--
+-- Triggers `cart`
+--
+DELIMITER $$
+CREATE TRIGGER `delete_cart` BEFORE DELETE ON `cart` FOR EACH ROW BEGIN
+	INSERT INTO purchase VALUES(
+    null, old.CUSTOMER_ID, old.PROD_ID
+    );
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -851,6 +863,24 @@ CREATE TABLE `purchase` (
   `PROD_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`ID`, `CUSTOMER_ID`, `PROD_ID`) VALUES
+(1, 15572, 201),
+(2, 15572, 101),
+(3, 15572, 101),
+(4, 15572, 101),
+(5, 15572, 101),
+(6, 15572, 101),
+(7, 15572, 1301),
+(8, 15572, 4301),
+(9, 15572, 1301),
+(10, 15572, 4301),
+(11, 15572, 102),
+(12, 15572, 102);
+
 -- --------------------------------------------------------
 
 --
@@ -875,6 +905,7 @@ INSERT INTO `users` (`id`, `lastname`, `firstname`, `email`, `contact`, `passwor
 (6829, 'Elim', 'Daisy May', 'daisy@email.com', '09232756236', '25d55ad283aa400af464c76d713c07ad'),
 (7349, 'Abejar', 'Jayharron', 'jay@gmail.com', '09123123456', 'a106318aa4f97ed7a00da3f46f24352e'),
 (9542, 'Cuico', 'Harold', 'harold@gmail.com', '09123456789', 'c57f431343f100b441e268cc12babc34'),
+(15572, 'Cuico', 'Harold', 'cuicoharold6@gmail.com', '09567126397', '727087c4d3dcc14f44e27906e7da44ab'),
 (18567, 'hotel', 'india', 'jay@gmail.com', '09123123456', 'e10adc3949ba59abbe56e057f20f883e'),
 (19775, 'Morales', 'Jonathan Kent', 'papakent@gmail.com', '09123123556', '3d8fb924f7aed7fa5300f225a58bc8fc');
 
@@ -924,13 +955,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
