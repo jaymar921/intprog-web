@@ -86,13 +86,13 @@
                       ₱{{ data[x].price }}
                       </div>
                       <div class="rating">
-                        {% for x in range(5) %}
-                            {% if x < info[x].rating %}
+                        {% for i in range(5) %}
+                            {% if i < info[x].rating %}
                               <span class="fa fa-star checked"></span>
                             {% else %}
                               <span class="fa fa-star"></span>
                             {% endif %}
-                          {% endfor %}
+                        {% endfor %}
                         {{info[x].sold}} sold
                       </div>
                     </div>
