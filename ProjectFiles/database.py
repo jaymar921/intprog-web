@@ -119,3 +119,24 @@ def removeCart(user_id: int, prod_id: int):
     db.commit()
     cursor.close()
     db.close()
+
+
+def getPurchases(user_id: int):
+    sql: str = f"SELECT * FROM `purchase` where CUSTOMER_ID={user_id} group by(PROD_ID) "
+    db = Database()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(sql)
+    DATA: list = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return DATA
+
+
+def addToPurchase(email: str, prod_id: int):
+    sql: str = f"INSERT INTO `purchase`(`CUSTOMER_ID`,`PROD_ID`) VALUES ('{getAccountByEmail(email).user_id}', '{prod_id}')"
+    db = Database()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(sql)
+    db.commit()
+    cursor.close()
+    db.close()

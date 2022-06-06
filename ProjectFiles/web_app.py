@@ -141,7 +141,6 @@ def showProduct(items: str):
     for x in range(m, r):
         data: utility.ProductInfo = database.getProductInfo(x)
         INFO.append(data)
-        print(data.rating)
     return render_template("ProductInfo/PRODUCT_INFORMATION.html", data=DATA, info=INFO,
                            category=utility.parseCatLocation(INFO[0].category),
                            account=session['username'])

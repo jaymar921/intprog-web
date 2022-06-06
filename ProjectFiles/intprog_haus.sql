@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2022 at 02:29 PM
+-- Generation Time: Jun 06, 2022 at 01:09 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -32,6 +32,15 @@ CREATE TABLE `cart` (
   `CUSTOMER_ID` int(11) NOT NULL,
   `PROD_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`ID`, `CUSTOMER_ID`, `PROD_ID`) VALUES
+(14, 7349, 402),
+(25, 7349, 2402),
+(26, 7349, 1302);
 
 -- --------------------------------------------------------
 
@@ -619,7 +628,7 @@ CREATE TABLE `product_info` (
 --
 
 INSERT INTO `product_info` (`PRODUCT_ID`, `PRODUCT_CATEGORY`, `SUB_CATEGORY`, `PICTURE_LINK`, `SOLD`, `RATING`, `BUY_RATE`) VALUES
-(101, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/1_bath_mats.jpg', 0, '0.0', 0),
+(101, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/1_bath_mats.jpg', 0, '4.0', 0),
 (102, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/2_bath_mats.jpg', 0, '0.0', 0),
 (103, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/3_bath_mats.jpeg', 0, '0.0', 0),
 (104, 'Bath', 'Bath Maths', 'images/bath/Bath Mats/4_bath_mats.jpeg', 0, '0.0', 0),
@@ -833,6 +842,18 @@ INSERT INTO `product_info` (`PRODUCT_ID`, `PRODUCT_CATEGORY`, `SUB_CATEGORY`, `P
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `ID` int(11) NOT NULL,
+  `CUSTOMER_ID` int(11) NOT NULL,
+  `PROD_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -882,6 +903,14 @@ ALTER TABLE `product_info`
   ADD KEY `PRODUCT_ID` (`PRODUCT_ID`);
 
 --
+-- Indexes for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `CUSTOMER_ID` (`CUSTOMER_ID`),
+  ADD KEY `PROD_ID` (`PROD_ID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -895,6 +924,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `purchase`
+--
+ALTER TABLE `purchase`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -913,6 +948,13 @@ ALTER TABLE `cart`
 --
 ALTER TABLE `product_info`
   ADD CONSTRAINT `product_info_ibfk_1` FOREIGN KEY (`PRODUCT_ID`) REFERENCES `product` (`PROD_ID`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `purchase`
+--
+ALTER TABLE `purchase`
+  ADD CONSTRAINT `purchase_ibfk_1` FOREIGN KEY (`CUSTOMER_ID`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `purchase_ibfk_2` FOREIGN KEY (`PROD_ID`) REFERENCES `product` (`PROD_ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
