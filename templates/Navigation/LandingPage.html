@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Landing Page</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="static/land.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
+  <style>
+
+
+  </style>
+</head>
+
+<body>
+  <div class="banner" style="width: 100%;">
+    <!--the navigation bar DIV-->
+    <div class="stick">
+    <div class="w3-container w3-padding" style="display: block;">
+      <div>
+        <img src="static/images/LandingPage/1a.png" class="logo">
+      </div>
+      <div class="topnav" id="topnav">
+        <a href="#About Us">About Us</a>
+        <div class="dropdown" >
+          <a href="#Categories">Categories <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="{{ url_for('bath') }}">Bath</a>
+            <a href="{{ url_for('bedding') }}">Bedding</a>
+            <a href="{{ url_for('furniture') }}">Furniture</a>
+            <a href="{{ url_for('storage') }}">Storage & Organization</a>
+            <a href="{{ url_for('laundry_cleaning') }}">Laundry & Cleaning Equipment</a>
+            <a href="{{ url_for('kitchen_dining') }}">Kitchen & Dining</a>
+            <a href="{{ url_for('lighting') }}">Lighting</a>
+            <a href="{{ url_for('decor') }}">Home Decor</a>
+            <a href="{{ url_for('outdoor_garden') }}">Outdoor & Garden</a>
+            <a href="{{ url_for('stationary_craft') }}">Stationery & Craft</a>
+            <a href="{{ url_for('tools_home') }}">Tools & Home Improvement</a>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top: 1%; display: inline-flex;">
+        <form method="POST" action="/search">
+          <input type="text" placeholder=" Search for Bedroom Furniture" name="search" size="50" />
+          <!--<i class='fa fa-search'></i>-->
+          <button type="submit"
+            style="border: none; padding: 10px; width: 50px; background-color: #f9f9f9; cursor: pointer;"><i
+              class='fa fa-search'></i></button>
+        </form>
+      </div>
+      <div class="w3-container" style="float: right; margin-top: 25px; width: 15%;display: inline-flex;">
+        <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
+        <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;" onclick="location.href='/cart'"></i>
+        <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;" onclick="location.href='/notification'"></i>
+        <div class="dropdown">
+          <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+          <div class="dropdown-content">
+            <a href="#">Account</a>
+            <a href="/login">Login</a>
+            <a href="/register">Signup</a>
+          </div>
+          {% if account != "" %}
+          <a style="font-size:0.8em;">{{account}}</a>
+          {% endif %}
+      </div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <!--SLIDE SHOW-->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+    <!--SHOPNOW CARD-->
+    <div class="shopNow-card">
+      <div class="card-content">
+        <h2><b>High-Quality Home Needs Just<br> For You</b></h2>
+        <p>These products are made from selected and best quality materials that are suitable for your dream home.</p>
+        <button>Shop Now</button><!--kamo lay set sa value bossing hehe-->
+      </div>
+    </div>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <img src="static/images/LandingPage/SLIDE1.jpg">
+        <a href="#">
+          <div class="text"><b>Cecco</b>
+            <p>Luxury big sofa</p>
+            <b>P32,000</b>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="mySlides fade">
+        <img src="static/images/LandingPage/SLIDE.jpg">
+        <a href="#">
+          <div class="text"><b>Ruth</b>
+            <p>Cozy Sala Set</p>
+            <b>P38,000</b>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="mySlides fade">
+        <img src="static/images/LandingPage/SLIDE3.jpg">
+        <a href="#">
+          <div class="text"><b>Eve</b>
+            <p>Reading Chair</p>
+            <b>P6,800</b>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--QUALITY-->
+  <br>
+  <div class="quality">
+    <div class="quality-content">
+      <div class="content-pic">
+        <img src="static/images/LandingPage/trophy.png" style="width: 40px;">
+      </div>
+      <div>
+        <b>High Quality</b>
+        <p>crafted from top materials</p>
+      </div>
+    </div>
+    <div class="quality-content">
+      <div class="content-pic">
+        <img src="static/images/LandingPage/guaranteed.png" style="width: 40px;">
+      </div>
+      <div>
+        <b>Warranty Protection</b>
+        <p>over 2 years</p>
+      </div>
+    </div>
+    <div class="quality-content">
+      <div class="content-pic">
+        <img src="static/images/LandingPage/package.png" style="width: 40px;">
+      </div>
+      <div>
+        <b>Free Shipping</b>
+        <p>Order over P2,000</p>
+      </div>
+    </div>
+  </div>
+  <br>
+ <!--ABOUT US PART-->
+  <div class="about">
+    <br><br><br><br><br>
+    <div class="about-box">
+      <br><br><br>
+      <img src="static/images/LandingPage/1a.png" class="">
+      <p>HAUS is dedicated to bringing you the best in home inspiration and decoration. This one-of-a-kind website
+        connects people with all home and living products where it provides much needed market information, high quality
+        home decor to assist
+        clients make sound decision.</p>
+
+      <p>We have a collection/delivery service to make sure that your HAUS needs are covered at maximum convenience.</p>
+
+      <p>Never stop seeking for that place that will provide security and comfort; where you can be yourself and create
+        happy memories. And if you’ve already found it,choose HAUS
+        for a comfortable home living.</p>
+      <br><br>
+      <button>Know More</button>
+    </div>
+  </div>
+  <br><br>
+  <br><br>
+  <!--CATEGORIES-->
+  <div class="category">
+    <h1>Categories</h1>
+    <br><br>
+    <div class="category-container">
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('bath') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/bath.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Bath</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('bedding') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/bedding.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Bedding</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('furniture') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/furniture.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Furniture</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('storage') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/storage.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Storage & Organization</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('laundry_cleaning') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/laundry.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Laundry and Cleaning Equipment</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('kitchen_dining') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/kitchen.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Kitchen and Dining</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('lighting') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/lighting.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Lighting</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('decor') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/homedecor.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Home Decor</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('outdoor_garden') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/gardentools.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Outdoor & Garden</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('stationary_craft') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/stationery.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Stationery & Craft</h3>
+        </div>
+      </div>
+
+      <div class="category-content w3-card-4" onclick="location.href='{{ url_for('tools_home') }}' ;"
+           style="cursor: pointer;">
+        <div class="category-content-pic">
+          <img src = "static/images/LandingPage/homeimprovement.jpg">
+        </div>
+        <br>
+        <div class="category-content-desc">
+          <h3>Tools & Home Improvement</h3>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!--FOOTER-->
+  <hr>
+  <div class="footer">
+  Copyright &copy; HAUS Home & Living, 2022
+  </div>
+
+</body>
+<!--SCRIPT FOR SLIDESHOW-->
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+
+  window.addEventListener("scroll", function(){
+    var header = document.getElementById("topnav");
+    header.classList.toggle("sticky", window.scrollY > 0);
+  })
+</script>
+
+</html>

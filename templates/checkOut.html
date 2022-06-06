@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Check out</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='checkOut.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="top-nav">
+    <div onclick="location.href='{{ url_for('home') }}'" style="cursor: pointer">
+      <img src="static/images/LandingPage/1a.png" class="logo">
+    </div>
+    <div style="margin-left: 100px; margin-right: 100px;">
+      <form  action="/search" method="post">
+        <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="80"  />
+        <button type="submit"
+          style="border: none; padding: 10px; width: 50px; background-color: #f9f9f9; cursor: pointer;"><i
+            class='fa fa-search'></i></button>
+      </form>
+    </div>
+    <div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
+
+      <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
+      <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;" onclick="location.href='/cart'"></i>
+      <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;" onclick="location.href='/notification'"></i>
+      <div class="dropdown">
+        <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+        <div class="dropdown-content">
+          <a href="#">Account</a>
+          <a href="/login">Login</a>
+          <a href="/register">Signup</a>
+        </div>
+        {% if account != "" %}
+        <a style="font-size:0.8em;">{{account}}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <br>
+  <div>
+    <span style="margin-left: 190px;">
+      <a href="/home" class="upper-link" style="color: #4B8D2F">Home </a> |
+      <a href="#" class="upper-link" style="color: #EE4D2D">Check Out</a>
+    </span>
+  </div>
+  <br />
+  <table class="prod-list">
+    <tr>
+      <th colspan="2" style="text-align: left; padding-left: 16px;">Product</th>
+      <th style="width: 225px;"></th>
+      <th style="width: 200px;">Unit Price</th>
+      <th style="width: 160px;">Quantity</th>
+      <th style="width: 200px;">Total Price</th>
+    </tr>
+  </table>
+
+  <br>
+
+  <table class="prod-list">
+
+    {% for x in range(prod|length) %}
+      <!--FIRST ITEM-->
+      <tr>
+        <td class="center" style="width: 120px;">
+          <div class="item-content-pic">
+            <img src="static/{{info[x].photo_link}}">
+          </div>
+        </td>
+        <td style="text-align: left; width: 150px;">
+          {{prod[x].name}}
+        </td>
+        <td class="center">
+
+        </td>
+        <td class="center" style="width: 200px;">
+          ₱ {{prod[x].price}}
+        </td>
+        <td class="center" style="width: 160px;">
+          1
+        </td>
+        <td class="center" style="width: 200px; color: #EE4D2D">
+          ₱ {{prod[x].price}}
+        </td>
+      </tr>
+    {% endfor %}
+
+
+
+    <!--leave as it is for aesthetic purposes onle hehe-->
+    <tr>
+      <td style="border-bottom: 2px dashed #aeaeaa"></td>
+      <td style="border-bottom: 2px dashed #aeaeaa"></td>
+      <td style="border-bottom: 2px dashed #aeaeaa"></td>
+      <td style="border-bottom: 2px dashed #aeaeaa"></td>
+      <td style="border-bottom: 2px dashed #aeaeaa"></td>
+      <td style="border-bottom: 2px dashed #aeaeaa"></td>
+    </tr>
+    <tr>
+      <td class="center" style="border-bottom: 2px dashed #aeaeaa">Message:</td>
+      <td style="border-right:2px dashed #aeaeae; border-bottom: 2px dashed #aeaeaa">
+        <form>
+          <input type="text" placeholder="(Optional) Leave a message to the courier" name="search" size="50" class="note"/>
+        </form>
+      </td>
+      <td class="center" style="color: #4B8D2F; font-weight:bold; border-bottom: 2px dashed #aeaeaa">
+        Shipping Option:
+      </td>
+      <td class="center" style="border-bottom: 2px dashed #aeaeaa">
+        <span>Standard Local</span><br />
+        <span style="font-size: 12px; color:#aeaeae">Received by: 23 - 28 June</span>
+      </td>
+      <td class="center" style="font-weight: bold; color: #3059C1; border-bottom: 2px dashed #aeaeaa">
+
+      </td>
+      <td class="center" style="border-bottom: 2px dashed #aeaeaa">
+        ₱ 125.00
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid white"></td>
+      <td style="border-bottom: 1px solid white"></td>
+      <td style="border-bottom: 1px solid white"></td>
+      <td colspan="2" style="text-align: right;border-bottom: 1px solid white;">Order Total ({{size}} item/s):</td>
+      <td class="center" style="font-weight: bold; color: #EE4D2D; border-bottom: 1px solid white;">₱ {{total}}</td>
+    </tr>
+
+  </table>
+  <br />
+  <table class="pay">
+      <tr>
+          <td style="width: 180px; text-align: right;">
+            Payment Method
+          </td>
+          <td>
+            <select name="payment" class="payment" id="payment">
+              <option value="COD">Cash on Delivery</option>
+              <option value="GCash">GCash</option>
+          </select>
+          </td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="width: 250px;">
+          <span>
+              Merchandise Subtotal: <br/>
+              Shipping Total:<br />
+              Total Payment: 
+          </span>
+        </td>
+        <td style="text-align: right; width: 200px;">
+          <span> ₱ {{total}}</span><br/>
+          <span> ₱ 125.00</span><br/>
+          <span style="font-size: 25px; font-weight:bold; color: #EE4D2D;"> ₱ {{total+125}}</span><br/>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2">
+          <button class="order-btn" onclick="get_MOP()">Place Order</button>
+        </td>
+        <script type="text/javascript">
+           function get_MOP() {
+            var MOP = document.getElementById('payment').value
+            location.href='/receipt/{{total+125}},{{size}},'+MOP
+           }
+        </script>
+      </tr>
+  </table>
+
+  <hr>
+  <!--FOOTER-->
+  <div class="footer">
+    <br>
+    <table class="foot">
+      <tr>
+        <th>News and Info</th>
+        <th colspan="2">Top Brands and Pages</th>
+        <th colspan="2" style="width: 30%;">Contacts</th>
+      </tr>
+      <tr>
+        <td>Products</td>
+        <td>Ikea</td>
+        <td>Mandaue Foam</td>
+        <td>Email</td>
+        <td style="text-align: left; color:blue;">haus_service@email.com</td>
+      </tr>
+      <tr>
+        <td>Guarantees</td>
+        <td>Uratex</td>
+        <td>Firefly</td>
+        <td>Phone</td>
+        <td style="text-align: left; color:blue;">+63 9123 456 789</td>
+      </tr>
+      <tr>
+        <td>New Products</td>
+        <td>Wilton</td>
+        <td>Dewalt</td>
+        <td>Address</td>
+        <td style="text-align: left; color:blue;">HAUS Corp. Cebu City 6000, Philippines</td>
+      </tr>
+      <tr>
+        <td>Wholesale</td>
+        <td>Cofta</td>
+        <td>Bosch</td>
+      </tr>
+      <tr>
+        <td>Customer Service</td>
+        <td>Stanley</td>
+        <td>Philflex</td>
+      </tr>
+
+    </table>
+    <br>
+    <br>
+    Copyright &copy; HAUS Home & Living, 2022. The HAUS is not responsible for contents of external sites
+  </div>
+</body>
+
+</html>

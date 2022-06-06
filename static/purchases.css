@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    background-color: #dededea1;
+}
+
+.logo {
+    float: left;
+    max-width: 20vh;
+    margin-left: 20px;
+}
+
+input {
+    border-style: hidden;
+    background-color: white;
+    padding: 10px;
+}
+
+.top-nav {
+    display: flex;
+    background-color: #D3D29E;
+    height: 100px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    border: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    display: flex;
+    width: 77%;
+    margin: auto;
+}
+
+.top-main{
+    display: flex; 
+    padding-left: 40px; 
+    border-bottom: 2px solid white;
+    padding-bottom: 20px;
+}
+
+.top-b{
+    padding-top: 10px;
+    padding-left: 25px ;
+    text-align: left;
+}
+
+.side-nav{
+    width: 20%;
+    display: block;
+    text-align: center;
+    height: 700px;
+}
+
+.prof-pic{
+    height: 60px;
+}
+
+.side-nav li{
+    list-style: none;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.side-nav li:hover{
+    text-decoration: underline;
+    color: #4B8d2f;
+}
+
+.content{
+    width: 80%;
+    background-color: white;
+}
+
+.prod-tbl{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+.prod-tbl th{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.prod-tbl td{
+    border-top: 1px solid #aeaeaa;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.item-content-pic img {
+    width: 100px;
+    height: 98px;
+    object-fit: cover;
+}
+
+.rate-btn{
+    height: 50px;
+    width: 130px;
+    background-color: #4B8d2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.rate-btn:hover{
+    font-weight: bold;
+    background-color: white;
+    color: #4B8d2f;
+    border:1px solid #4B8d2f;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer {
+    display:block;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+.foot {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.foot th {
+    text-align: center;
+    padding: 20px;
+}
+

@@ -1,0 +1,362 @@
+body {
+    margin: 0;
+}
+
+.logo {
+    float: left;
+    max-width: 20vh;
+    margin-left: 20px;
+}
+
+input {
+    border-style: hidden;
+    background-color: white;
+    padding: 10px;
+}
+
+.top-nav {
+    display: flex;
+    background-color: #D3D29E;
+    height: 100px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    left: 50%;
+    text-align: center;
+    background-color: #F0F0DE;
+}
+.catg-line{
+    background-color: #F0F0DE;
+}
+ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: left;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: auto;
+}
+
+li a:hover {
+    background-color: #4B8D2F;
+    color: white;
+}
+
+/* Styling addressLink class */
+.addressLink {
+    list-style: none;
+    overflow: hidden;
+    font: 16px;
+    margin: 30px;
+    padding: 0px;
+}
+
+/* Floating addressLink list */
+.addressLink li {
+    float: left;
+}
+
+/* Styling addressLink list's anchor element*/
+.addressLink li a {
+    background: #006600;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0px 5px 65px;
+    position: relative;
+    float: left;
+}
+
+.addressLink li a:after {
+    content: " ";
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid #006600;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    z-index: 2;
+}
+
+.addressLink li a:before {
+    content: " ";
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    z-index: 1;
+}
+
+/* First child padding */
+.addressLink li:first-child a {
+    padding-left: 10px;
+}
+
+/* Second child bg-color */
+.addressLink li:nth-child(2) a {
+    background: #009933;
+}
+
+/* Second child Second half bg-color */
+.addressLink li:nth-child(2) a:after {
+    border-left-color: #009933;
+}
+
+/* Third child bg-color */
+.addressLink li:nth-child(3) a {
+    background: #33cc33;
+}
+
+/* Third child Second half bg-color */
+.addressLink li:nth-child(3) a:after {
+    border-left-color: #33cc33;
+}
+
+/* Last child bg-color and text-color */
+.addressLink li:last-child a {
+    background: transparent !important;
+    color: black;
+}
+
+.addressLink li:last-child a:after {
+    border: 0px;
+}
+
+/* Hover on list's anchor element */
+.addressLink li a:hover {
+    background: #99ff99;
+    color: #000;
+}
+
+.addressLink li a:hover:after {
+    border-left-color: #99ff99 !important;
+}
+
+.footer {
+    display: block;
+    background-color: #F0F0DE;
+    height: auto;
+    width: 100%;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+.foot {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+table th {
+    text-align: center;
+    padding: 20px;
+}
+
+.container{
+    width: 70%;
+    display: block;
+    background-color: #eeeded;
+    margin: auto;
+}
+
+.container-info{
+    padding: 10px;
+    display: flex;
+}
+.picture{
+    width: 400px;
+    height: 400px;
+}
+
+.category-content-pic {
+    width: 100%;
+    height: 300px;
+}
+
+.category-content-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.description{
+    padding-left: 10px;
+    width: 600px;
+}
+.rating{
+    color: black;
+    font-size: 12px;
+}
+
+.checked {
+    color: orange;
+  }
+  .star{
+      border-right: 1px solid black;
+
+  }
+.rating{
+    display: flex;
+}
+
+.price {
+    font-size: 30px;
+    color: #f57224;
+    border-top: 1px solid #cfcfcf
+}
+
+.shipping-info{
+    width: 300px;
+    background-color: white;
+    padding: 10px;
+}
+.delivery {
+    border-spacing: 2px 10px;
+}
+.delivery i{
+    color: #4B8D2F;    
+}
+
+.return {
+    border-spacing: 10px 10px;
+}
+.return i{
+    color: #4B8D2F;    
+}
+
+.counter {
+    width: 150px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    margin-left: 10px;
+}
+.counter input {
+    width: 50px;
+    border: 0;
+    line-height: 20px;
+    font-size: 15px;
+    text-align: center;
+    background: #eeeded;
+    color: black;
+    appearance: none;
+    outline: 0;
+    border: 1px solid #cfcfcf;
+}
+.counter span {
+    display: block;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #EE4D2D;
+    user-select: none;
+    border: 1px solid #cfcfcf;
+}
+.buttons{
+    display: flex;
+    padding-right: 10px;
+}
+.buttons button{
+    border: none;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #EE4D2D;
+    margin: 10px;
+}
+.buy{
+    background-color: #ee4d2d;
+    color: white;
+    width: 50%;
+}
+.addCart{
+    background-color: #FFF5F1;    
+    color: #EE4D2D;
+    width: 50%;
+}
+
+.color{
+    display: flex;
+}
+.specs{
+    text-align: left;
+    align-items: left;
+    width: 60%;
+    margin-left: 30px;
+}
+.desc{
+    text-align: left;
+    align-items: left;
+    width: 95%;
+    margin-left: 30px;
+    margin: auto;
+    table-layout: fixed;
+}
+.prod-rating{
+    margin: auto;    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+}
+.review{
+    margin: auto;
+    align-items: center;  
+    justify-content: center;  
+}
+.btn-rate{
+    background-color: white;
+}
+.comment{
+    border-bottom: 1px solid #cfcfcf;
+    background-color: white;    
+}
+.title-right{
+    font-size: 12px;
+    float: right;
+}
+.cust-name{
+    color: gray;
+}
+.verified{
+    color: #4caf50;
+}
+.caption{
+    font-size: 15px;
+}
+.image-content img{
+    width:80px;
+    height: 80px;
+}
+.color-type{
+    font-size: 12px;
+    color: gray;
+}
+.bot{
+    color: gray;
+}
