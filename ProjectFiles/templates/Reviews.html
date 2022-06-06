@@ -6,14 +6,14 @@
         <title>My Cart</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="reviews.css">
+        <link rel="stylesheet" href="{{ url_for('static',filename='reviews.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="top-nav">
-            <div>
-              <img src="living.png" class="logo">
+            <div onclick="location.href='{{ url_for('home') }}'" style="cursor: pointer">
+              <img src="static/images/LandingPage/1a.png" class="logo">
             </div>
             <div style="margin-left: 100px; margin-right: 100px;">
               <form>
@@ -22,7 +22,7 @@
               </form>
             </div>
 			<div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
-      
+
               <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
               <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;"></i>
               <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;"></i>
@@ -34,36 +34,52 @@
                   <a href="#">Signup</a>
                 </div>
               </div>
-            </div>	
+            </div>
           </div>
-            
+
               </div>
             </div>
           </div>
           <br>
 		   <div class="container1">
 		   <div class="uploadImage">
-                 <img src="cam.png" class="user">
+                 <img src="static/images/cam.png" class="user">
                  <input type="file" name="uploadfile" id="img" style="display:none;"/>
                 <label for="img" >Select Image</label>
 
                 <p class="pFirst">File size: maximum 1 MB</p>
-                
-  
+
+
           </div>
-        
-		
+
+
             <form action="#" method="get">
 			<div class="formProfile">
-           
+                <h3><b>{{ name }}</b></h3>
             <label for="user"><b><h3>Write Review</h3></b></label>
 			<div class="rating">
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star "></span>
-                    <span class="fa fa-star"></span>
-                    
+                    <span class="fa fa-star checked" id="star1" onclick="rate(1)" style="cursor:pointer"></span>
+                    <span class="fa fa-star " id="star2" onclick="rate(2)"></span>
+                    <span class="fa fa-star " id="star3" onclick="rate(3)"></span>
+                    <span class="fa fa-star " id="star4" onclick="rate(4)"></span>
+                    <span class="fa fa-star" id="star5" onclick="rate(5)"></span>
+                <script type="text/javascript">
+                    function rate(x)
+                    {
+                        for(let i=1; i<=5; i++)
+                        {
+                            if(i<=parseInt(x))
+                            {
+                                document.getElementById('star'+i).style.color='orange';
+
+                            }
+                            else
+                            {
+                                document.getElementById('star'+i).style.color='grey';
+                            }
+                        }
+                    }
+                </script>
                   </div>
             <p><input style= "border: 2px solid black" type="text" placeholder="Comment here..." name="user" required></p>
 			</div><br><br>
@@ -72,16 +88,16 @@
 			<button class="button">Cancel</button>
 			</form>
 
-        
+
         </div>
-		
-		
+
+
     </div>
 
 
-        
+
     </body>
-	
+
 	<br>
 	<br>
 	<br>

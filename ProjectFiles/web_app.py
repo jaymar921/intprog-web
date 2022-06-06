@@ -123,8 +123,25 @@ def notification():
 
 @app.route("/history")
 def history():
-    return render_template("history.html", account=session['username'])
+    user: utility.User = database.getAccountByEmail(session['username'])
 
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        products: list = []
+        info: list = []
+        PURCH = database.getPurchases(user.user_id)
+        total: int = 0
+        for x in PURCH:
+            products.append(database.getProduct(x['PROD_ID']))
+            info.append(database.getProductInfo(x['PROD_ID']))
+            total = total + database.getProduct(x['PROD_ID']).price
+    return render_template("history.html", account=session['username'], prod=products, info=info)
+
+
+@app.route("/reviews/<data>")
+def review(data):
+    return render_template("reviews.html", account=session['username'], name = data)
 
 @app.route("/purchases")
 def purchases():
@@ -144,6 +161,16 @@ def purchases():
     return render_template("myPurchases.html", account=session['username'], prod=products, info=info)
 
 
+@app.route("/address")
+def address():
+    return render_template('address.html', account=session['username'])
+
+
+@app.route("/profiles")
+def profiles():
+    return render_template('profile.html', account=session['username'])
+
+
 @app.route("/checkout")
 def checkout():
     user: utility.User = database.getAccountByEmail(session['username'])
@@ -160,7 +187,7 @@ def checkout():
             info.append(database.getProductInfo(x['PROD_ID']))
             total = total + database.getProduct(x['PROD_ID']).price
         return render_template('checkout.html', account=session['username'], prod=products, info=info, total=total,
-                               size=len(products))
+                               size=len(products), address=user.address)
 
 
 # render product

@@ -14,7 +14,7 @@ body {
     padding: 10px;
     position: relative;
 }
-.search button{border: none; padding: 10px; width: 50px;  cursor: pointer;position: absolute;left: 11px;height: 52px;top: 3px;}
+.search button{border: none; padding: 10px; width: 50px;  cursor: pointer;position: absolute;right: 11px;height: 52px;top: 3px;}
 .top-nav {
     display: flex;
     background-color: #D3D29E;

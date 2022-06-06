@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='update.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="top-nav">
+            <div onclick="location.href='{{ url_for('home') }}'" style="cursor: pointer">
+              <img src="static/images/LandingPage/1a.png" class="logo">
+            </div>
+    <div style="margin-left: 100px; margin-right: 100px;">
+      <form class="search" action="/search" method="post">
+
+        <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="80" />
+        <button type="submit" style="color: black;"><i class='fa fa-search'></i></button>
+
+      </form>
+    </div>
+    <div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
+
+      <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
+      <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;"></i>
+      <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;"></i>
+      <div class="dropdown">
+        <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+        <div class="dropdown-content">
+          <a href="/profiles">Account</a>
+          <a href="#">Login</a>
+          <a href="#">Signup</a>
+          <a href="#">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form action="action_page.php" style="border:1px solid #ccc; background: #E5E5E5;">
+
+    <!-- PARENT DIV -->
+    <div class="parentInfo">
+
+      <!-- LEFT ITEM -->
+     <!-- <div class="profile">
+        <div class="editprofile">
+          <img src="user1.png" class="user">
+          <div>
+            <h5>Username</h5> <a href="#">Edit profile</a>
+          </div>
+        </div>
+
+        <div class="Proflinks">
+          <a href="#">My Profile</a>
+          <a href="#">Addresses</a>
+          <a href="#">My purchases</a>
+          <a href="#">Notifications</a>
+        </div>
+      </div>
+      -->
+
+      <div class="side-nav"><!--CHILD/LEFT PART/SIDE NAV-->
+        <br>
+          <div class="top-main">
+            <div class="top-a">
+              <img src="static/images/user1.png" class="prof-pic">
+            </div>
+            <div class="top-b">
+              <span style="font-weight: bolder;">Username</span><br/>
+              <span style="font-size: 12px;"><a href="" style="text-decoration:underline; color: dodgerblue;">Edit Profile</a></span>
+            </div>
+          </div>
+          <ul>
+            <a href="#"><li>My Profile</li></a>
+            <a href="/address"><li>Addresses</li></a>
+            <a href="/purchases"><li>My Purchases</li></a>
+            <a href="/notification"><li>Notifications</li></a>
+            <a href="/history"><li>History</li></a>
+          </ul>
+      </div>
+
+      <!-- RIGHT ITEM -->
+      <div class="ProfileForm">
+        <div class="head">
+          <h1>My Profile</h1>
+          <p>Manage and protect your account.</p>
+        </div>
+
+        <div class="d-flex">
+          <div class="container">
+
+
+            <form action="#">
+              <div class="formProfile">
+
+                <label for="user"><b>Username</b></label>
+                <input type="text" placeholder="" name="user" required>
+
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="" name="name" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="" name="email" required>
+
+                <label for="quantity"><b>Phone Number</b></label>
+                <input type="number" placeholder="" name="quantity" max="11" required>
+
+                <label><b>Gender:</b></label>
+
+                <div class="gender">
+                  <p>
+                    <input type="radio" id="test1" name="radio-group" checked>
+                    <label for="Male">Male</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="test2" name="radio-group">
+                    <label for="Female">Female</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="test3" name="radio-group">
+                    <label for="Other">Other</label>
+                  </p>
+                </div>
+
+                <label><b>Date of Birth</b></label>
+                <input type="date" id="birthday" name="birthday">
+
+              </div>
+              <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+              <div class="clearfix">
+
+                <button type="submit" class="savebtn">Save</button>
+              </div>
+            </form>
+          </div>
+
+
+          <div class="uploadImage">
+            <img src="static/images/user1.png" class="user">
+            <input type="file" name="uploadfile" id="img" style="display:none;" />
+            <label for="img">Select Image</label>
+
+            <p class="pFirst">File size: maximum 1 MB</p>
+            <P>File extension: JPEG, PNG</P>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </form>
+
+  <!--FOOTER-->
+
+  <div class="footer">
+    <br>
+    <table class="foot">
+      <tr>
+        <th>News and Info</th>
+        <th colspan="2">Top Brands and Pages</th>
+        <th colspan="2" style="width: 30%;">Contacts</th>
+      </tr>
+      <tr>
+        <td>Products</td>
+        <td>Ikea</td>
+        <td>Mandaue Foam</td>
+        <td>Email</td>
+        <td style="text-align: left; color:blue;">haus_service@email.com</td>
+      </tr>
+      <tr>
+        <td>Guarantees</td>
+        <td>Uratex</td>
+        <td>Firefly</td>
+        <td>Phone</td>
+        <td style="text-align: left; color:blue;">+63 9123 456 789</td>
+      </tr>
+      <tr>
+        <td>New Products</td>
+        <td>Wilton</td>
+        <td>Dewalt</td>
+        <td>Address</td>
+        <td style="text-align: left; color:blue;">HAUS Corp. Cebu City 6000, Philippines</td>
+      </tr>
+      <tr>
+        <td>Wholesale</td>
+        <td>Cofta</td>
+        <td>Bosch</td>
+      </tr>
+      <tr>
+        <td>Customer Service</td>
+        <td>Stanley</td>
+        <td>Philflex</td>
+      </tr>
+    </table>
+    <br />
+    Copyright &copy; HAUS Home & Living, 2022. The HAUS is not responsible for contents of external sites
+  </div>
+</body>
+
+</html>

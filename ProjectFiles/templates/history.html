@@ -29,7 +29,7 @@
               <div class="dropdown">
                 <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
                 <div class="dropdown-content">
-                  <a href="#">Account</a>
+                  <a href="/profiles">Account</a>
                   <a href="/login">Login</a>
                   <a href="/register">Signup</a>
                 </div>
@@ -53,11 +53,11 @@
                   </div>
                 </div>
                 <ul>
-                  <a href="#"><li>My Profile</li></a>
-                  <a href="#"><li>Addresses</li></a>
-                  <a href="#"><li>My Purchases</li></a>
-                  <a href="#"><li>Notifications</li></a>
-                  <a href="#"><li>History</li></a>
+            <a href="/profiles"><li>My Profile</li></a>
+            <a href="/address"><li>Addresses</li></a>
+            <a href="/purchases"><li>My Purchases</li></a>
+            <a href="/notification"><li>Notifications</li></a>
+            <a href="/history"><li>History</li></a>
                 </ul>
             </div>
             <div class="content"><!--CHILD/RIGHT PART-->
@@ -77,21 +77,27 @@
 
 
                 <!--FIRST ITEM-->
+                {% for x in range(prod | length)%}
                 <tr>
                   <td>#3059C1</td>
                   <td>
                     <div class="item-content-pic">
-                    <img src="bath.jpg">
+                    <img src="/static/{{ info[x].photo_link}}">
                     </div>
                   </td>
-                  <td style="text-align: left;">Item 1 Description</td>
-                  <td>₱ 100.00</td>
+                  <td style="text-align: left;">{{ prod[x].name}}</td>
+                  <td>₱ {{ prod[x].price}}</td>
                   <td>1</td>
-                  <td>₱ 100.00</td>
+                  <td>₱ {{ prod[x].price}}</td>
                   <td>Cash On Delivery</td>
-                  <td>2022/06/25</td>
+                  <td id="dateNow">2022/06/25</td>
+                  <script type="text/javascript">
+                            const d = new Date();
+                            d.now()
+                            document.getElementById('dateNow').innerHTML = d;
+                  </script>
                 </tr>
-
+                {% endfor %}
 
               </table>
             </div>

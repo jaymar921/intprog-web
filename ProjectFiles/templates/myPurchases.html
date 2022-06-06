@@ -29,7 +29,7 @@
               <div class="dropdown">
                 <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
                 <div class="dropdown-content">
-                  <a href="#">Account</a>
+                  <a href="/profiles">Account</a>
                   <a href="/login">Login</a>
                   <a href="/register">Signup</a>
                 </div>
@@ -45,7 +45,7 @@
               <br>
                 <div class="top-main">
                   <div class="top-a">
-                    <img src="profile-icon.png" class="prof-pic">
+                    <img src="static/images/user1.png" class="prof-pic">
                   </div>
                   <div class="top-b">
                     <span style="font-weight: bolder;">Username</span><br/>
@@ -53,11 +53,11 @@
                   </div>
                 </div>
                 <ul>
-                  <a href="#"><li>My Profile</li></a>
-                  <a href="#"><li>Addresses</li></a>
-                  <a href="#"><li>My Purchases</li></a>
-                  <a href="#"><li>Notifications</li></a>
-                  <a href="#"><li>History</li></a>
+            <a href="/profiles"><li>My Profile</li></a>
+            <a href="/address"><li>Addresses</li></a>
+            <a href="/purchases"><li>My Purchases</li></a>
+            <a href="/notification"><li>Notifications</li></a>
+            <a href="/history"><li>History</li></a>
                 </ul>
             </div>
             <div class="content"><!--CHILD/RIGHT PART-->
@@ -91,7 +91,7 @@
                   <td>1</td>
                   <td>₱ {{ prod[X].price}}</td>
                   <td>
-                    <button class="rate-btn">Rate Product</button>
+                    <button class="rate-btn" onclick="location.href = '/reviews/{{ prod[X].name }}'">Rate Product</button>
                   </td>
                 </tr>
                 {% endfor %}

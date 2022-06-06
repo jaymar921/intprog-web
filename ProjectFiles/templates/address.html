@@ -7,18 +7,18 @@
   <title>My Addresses</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="address.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='address.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/749dd8838c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="top-nav">
-    <div>
-      <img src="1a.png" class="logo">
-    </div>
+            <div onclick="location.href='{{ url_for('home') }}'" style="cursor: pointer">
+              <img src="static/images/LandingPage/1a.png" class="logo">
+            </div>
     <div style="margin-left: 100px; margin-right: 100px;">
-      <form>
+      <form action="/search" method="post">
         <input type="text" placeholder=" Search in HAUS Home and Living" name="search" size="80" />
         <button type="submit"
           style="border: none; padding: 10px; width: 50px; background-color:#f9f9f9; cursor: pointer;"><i
@@ -28,14 +28,18 @@
     <div class="w3-container" style="float: right; width: 15%;display: inline-flex; ">
 
       <i class="fa-regular fa-heart fa-2x" style="margin-right: 30px; cursor: pointer;"></i>
-      <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;"></i>
-      <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;"></i>
-      <div class="dropdown">
-        <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
-        <div class="dropdown-content">
-          <a href="#">Account</a>
-          <a href="#">Login</a>
-          <a href="#">Signup</a>
+        <i class="fa-solid fa-cart-shopping fa-2x" style="cursor: pointer; margin-right: 30px;" onclick="location.href='/cart'"></i>
+        <i class="fa fa-bell fa-2x" style="cursor: pointer;  margin-right: 30px;" onclick="location.href='/notification'"></i>
+        <div class="dropdown">
+          <i class="fa fa-user fa-2x" style="cursor: pointer;"></i>
+          <div class="dropdown-content">
+            <a href="/profiles">Account</a>
+            <a href="/login">Login</a>
+            <a href="/register">Signup</a>
+          </div>
+          {% if account != "" %}
+          <a style="font-size:0.8em;">{{account}}</a>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -58,11 +62,11 @@
         </div>
       </div>
       <ul>
-        <a href="#"><li>My Profile</li></a>
-        <a href="#"><li>Addresses</li></a>
-        <a href="#"><li>My Purchases</li></a>
-        <a href="#"><li>Notifications</li></a>
-        <a href="#"><li>History</li></a>
+            <a href="/profiles"><li>My Profile</li></a>
+            <a href="/address"><li>Addresses</li></a>
+            <a href="/purchases"><li>My Purchases</li></a>
+            <a href="/notification"><li>Notifications</li></a>
+            <a href="/history"><li>History</li></a>
       </ul>
     </div>
     <div class="content">
@@ -146,7 +150,7 @@
         </div>
         <div class="w3-container">
             <br>
-            <form action="#" method="POST"><!--Add link-->
+            <form><!--Add link-->
                 <table class="address-info">
                   <tr>
                     <td><input type="text" placeholder="Fullname" name="user" class="modal-input"></td>
@@ -168,7 +172,7 @@
 
                 </table>
                 <p>
-                  <button class="cancel-btn">Cancel</button>
+                  <button class="cancel-btn" onclick="document.getElementById('addressModal').style.display='none'">Cancel</button>
                   <input type="submit" value="Submit" class="w3-button w3-green w3-right" style="width: 200px; margin-right: 10px;">
                 </p>
             </form>

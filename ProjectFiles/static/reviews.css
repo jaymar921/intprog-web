@@ -124,5 +124,6 @@ input {
 
 }
 
-
-
+.checked {
+    color: orange;
+  }
