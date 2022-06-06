@@ -139,7 +139,7 @@
             Payment Method
           </td>
           <td>
-            <select name="payment" class="payment">
+            <select name="payment" class="payment" id="payment">
               <option value="COD">Cash on Delivery</option>
               <option value="GCash">GCash</option>
           </select>
@@ -175,8 +175,14 @@
         <td></td>
         <td></td>
         <td colspan="2">
-          <button class="order-btn" onclick="location.href='/receipt'">Place Order</button>
+          <button class="order-btn" onclick="get_MOP()">Place Order</button>
         </td>
+        <script type="text/javascript">
+           function get_MOP() {
+            var MOP = document.getElementById('payment').value
+            location.href='/receipt/{{total+125}},{{size}},'+MOP
+           }
+        </script>
       </tr>
   </table>
 

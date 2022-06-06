@@ -26,6 +26,7 @@ class User:
     firstname: str
     email: str
     contact: str
+    address = "615 V. Abad Tormis Ext., Sambag II, Urgello, Cebu City 6000, Philippines"
 
 
 def parseCatLocation(category: str):

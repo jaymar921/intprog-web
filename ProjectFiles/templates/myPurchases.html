@@ -68,7 +68,7 @@
                 <tr>
                   <th>Order No.</th>
                   <th colspan="2">Product</th>
-                  <th>Variation</th>
+                  <th></th>
                   <th>Unit Price</th>
                   <th>Quantity</th>
                   <th>Total Price</th>
@@ -76,39 +76,26 @@
                 </tr>
 
                 <!--FIRST ITEM-->
+
+                {% for X in range(prod | length)  %}
                 <tr>
                   <td>#3059C1</td>
                   <td>
                     <div class="item-content-pic">
-                    <img src="bath.jpg">
+                    <img src="/static/{{ info[X].photo_link}}">
                     </div>
                   </td>
-                  <td style="text-align: left;">Item 1 Description</td>
-                  <td>Gray</td>
-                  <td>₱ 100.00</td>
+                  <td style="text-align: left;">{{ prod[X].name}}</td>
+                  <td></td>
+                  <td>₱ {{ prod[X].price}}</td>
                   <td>1</td>
-                  <td>₱ 100.00</td>
+                  <td>₱ {{ prod[X].price}}</td>
                   <td>
                     <button class="rate-btn">Rate Product</button>
                   </td>
                 </tr>
-                <!--SECOND ITEM-->
-                <tr>
-                  <td>#2647C1</td>
-                  <td>
-                    <div class="item-content-pic">
-                    <img src="bath.jpg">
-                    </div>
-                  </td>
-                  <td style="text-align: left;">Item 2 Description</td>
-                  <td>White</td>
-                  <td>₱ 200.00</td>
-                  <td>1</td>
-                  <td>₱ 200.00</td>
-                  <td>
-                    <button class="rate-btn">Rate Product</button>
-                  </td>
-                </tr>
+                {% endfor %}
+
 
               </table>
             </div>

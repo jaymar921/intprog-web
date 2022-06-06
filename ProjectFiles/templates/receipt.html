@@ -59,7 +59,12 @@
                 </tr>
                 <tr>
                     <td colspan="6">
-                        <span>Send date: 2022/06/06</span><br/>
+                        <span id="dateNow">Send date: 2022/06/06</span><br/>
+                        <script type="text/javascript">
+                            const d = new Date();
+                            d.now()
+                            document.getElementById('dateNow').innerHTML = d;
+                        </script>
                         <span>Order No: 0173185</span>
                     </td>
                 </tr>
@@ -73,16 +78,16 @@
                 <tr>
                     <td>To</td>
                     <td colspan="5">
-                        <span>Juan Dela Cruz </span><br/> 
-                        <span>615 V. Abad Tormis Ext., Sambag II, Urgello, Cebu City 6000, Philippines</span>
+                        <span>{{firstname}} {{lastname}}</span><br/>
+                        <span>{{address}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">No. of Delivery Attempts</td>
                     <td rowspan="2" colspan="3" style="text-align: right;">
-                        <span>Merchandise Total: ₱ 100.00</span><br />
-                        <span>Shipping Total: ₱ 100.00</span><br />
-                        <span>Total Payment: ₱ 200.00</span>
+                        <span>Merchandise Total: ₱ {{price}}</span><br />
+                        <span>Shipping Total: ₱ 125.00</span><br />
+                        <span>Total Payment: ₱ {{price+125}}</span>
                     </td>
                 </tr>
                 <tr>
@@ -91,10 +96,10 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <span>Pieces: 1</span><br/>
+                        <span>Pieces: {{size}}</span><br/>
                         <span>Weight: 50kls.</span><br/>
                         <span>Goods: Box/Pouch</span><br/>
-                        <span>Mode of Payment: Cash on Delivery</span>
+                        <span>Mode of Payment: {{MOP}}</span>
                     </td>
                     <td colspan="2" class="center"><br/><br/><br/>Signature</td>
                 </tr>

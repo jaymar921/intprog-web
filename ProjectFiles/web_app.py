@@ -54,9 +54,23 @@ def productListing(prod: int):
                            account=session['username'])
 
 # TODO()
-@app.route("/receipt")
-def showReceipt():
-    return render_template("receipt.html")
+
+
+@app.route("/receipt/<data>")
+def showReceipt(data):
+    user: utility.User = database.getAccountByEmail(session['username'])
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        CART = database.getCart(user.user_id)
+        if len(CART)>0:
+            database.deleteCart(user.user_id)
+            price = data.split(",")[0]
+            size = data.split(",")[1]
+            MOP = data.split(",")[2]
+            return render_template("receipt.html", address=user.address, firstname = user.firstname, lastname = user.lastname,
+                                   price = float(price), size = size, MOP = MOP)
+        return redirect(url_for("home"))
 
 
 @app.route("/bath")
@@ -95,7 +109,16 @@ def deleteCart(prod_id: str):
 
 @app.route("/notification")
 def notification():
-    return render_template("notif.html", account=session['username'])
+    user: utility.User = database.getAccountByEmail(session['username'])
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        Products = database.getPurchases(user.user_id)
+        productList:str = ""
+        for P in Products:
+            Prod = database.getProduct(P['PROD_ID'])
+            productList+=Prod.name+', '
+        return render_template("notif.html", account=session['username'], lst = productList)
 
 
 @app.route("/history")
@@ -105,7 +128,20 @@ def history():
 
 @app.route("/purchases")
 def purchases():
-    return render_template("myPurchases.html", account=session['username'])
+    user: utility.User = database.getAccountByEmail(session['username'])
+
+    if user is None:
+        return redirect(url_for('login'))
+    else:
+        products: list = []
+        info: list = []
+        PURCH = database.getPurchases(user.user_id)
+        total: int = 0
+        for x in PURCH:
+            products.append(database.getProduct(x['PROD_ID']))
+            info.append(database.getProductInfo(x['PROD_ID']))
+            total = total + database.getProduct(x['PROD_ID']).price
+    return render_template("myPurchases.html", account=session['username'], prod=products, info=info)
 
 
 @app.route("/checkout")

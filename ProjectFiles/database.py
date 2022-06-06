@@ -140,3 +140,13 @@ def addToPurchase(email: str, prod_id: int):
     db.commit()
     cursor.close()
     db.close()
+
+
+def deleteCart(user_id: int):
+    sql: str = f"DELETE FROM `cart` WHERE CUSTOMER_ID = {user_id}"
+    db = Database()
+    cursor = db.cursor()
+    cursor.execute(sql)
+    db.commit()
+    cursor.close()
+    db.close()
