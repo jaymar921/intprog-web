@@ -91,7 +91,7 @@
             <div class="star" style="padding-right: 20px;">
               <span style="color: black;">{{info[0].rating}}</span>
               {% for x in range(5) %}
-                {% if x < info[0].rating %}
+                {% if info[0].rating > x  %}
                   <span class="fa fa-star checked"></span>
                 {% else %}
                   <span class="fa fa-star"></span>
@@ -251,17 +251,7 @@
       <h3 style="margin: 10px; padding: 10px;">Product Reviews</h3>
       <div class="prod-rating">
         <div style=" width: 20%;">
-          <div>
-            <span style="font-size: 30px;font-weight: bold; color:#EE4D2D;">4.4</span><span
-              style="font-size: 30px; color: #cfcfcf;">/5</span>
-          </div>
-          <div class="review">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-          </div>
+
         </div>
         <div class="btn-rate">
           <button>All (12.4K)</button>
@@ -278,32 +268,33 @@
 
     </div>
 <!--COMMENT1-->
+    {% for x in comments %}
     <div class="comment">
       <br>
       <div class="top">
         <div class="review">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="title-right">05 Jan 2022</span>
+          {% for r in range(5) %}
+            {% if x.rating > r %}
+              <span class="fa fa-star checked"></span>
+            {% else %}
+              <span class="fa fa-star"></span>
+            {% endif %}
+          {% endfor %}
+          <span class="title-right">07 June 2022</span>
         </div>
       </div>
       <div class="middle">
-        <span class="cust-name">by T*****</span>
+        <span class="cust-name">by {{x.user.firstname}} {{x.user.lastname}}</span>
         <span class="verified">Verified Purchase</span>
       </div>
       <div class="item-content">
         <div class="caption">
-          The item served its purpose of drying wet floor and feet. Comfy gamitin, maganda yung design, and most of all,
-          mabilis ang shipping.
+          {{x.comment}}
         </div>
         <div class="image-content">
-          <img src="static/images/bath/Bath Mats/1_bath_mats.jpg">
+          <img src="/static/{{info[0].photo_link}}">
         </div>
         <div class="color-type">
-          Color: Slate gray
         </div>
       </div>
       <div class="bot">
@@ -312,40 +303,9 @@
       </div>
       <br>
     </div>
+    {% endfor %}
     <!--COMMENT2-->
-    <div class="comment">
-      <br>
-      <div class="top">
-        <div class="review">
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="title-right">18 Feb 2022</span>
-        </div>
-      </div>
-      <div class="middle">
-        <span class="cust-name">by kr****</span>
-        <span class="verified">Verified Purchase</span>
-      </div>
-      <div class="item-content">
-        <div class="caption">
-          So far, so good! For an affordable price, this is a great deal. Although it took almost a week before it was shipped, I might purchase again soon.
-        </div>
-        <div class="image-content">
-          <img src="static/images/bath/Bath Mats/1_bath_mats.jpg">
-        </div>
-        <div class="color-type">
-          Color: Silver
-        </div>
-      </div>
-      <div class="bot">
-        <span class="fa-solid fa-thumbs-up like"></span>
-        <span>2</span>
-      </div>
-      <br>
-    </div>
+
   </div>
   <section>
     <div class="container">

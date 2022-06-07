@@ -36,6 +36,8 @@ def loginAccount():
         return render_template("Navigation/LandingPage.html", account=session['username'])
     else:
         return render_template("Navigation/Login.html", remark="Incorrect Email or Password")
+
+
 # ===============================================================================================
 
 # render bathrobes
@@ -48,10 +50,28 @@ def productListing(prod: int):
     data: utility.ProductInfo = database.getProductInfo(prod)
     INFO.append(data)
 
+    comments = database.getComment(prod)
+    comment_list: list = []
+
+    for x in comments:
+        c = utility.Comment()
+        USR: utility.User = database.getAccountById(x['customer_id'])
+        c.user = utility.User()
+        c.user.user_id = USR.user_id
+        c.user.email = USR.email
+        c.user.contact = USR.contact
+        c.user.lastname = USR.lastname
+        c.user.firstname = USR.firstname
+        c.comment = x['COMMENT']
+        c.rating = x['rating']
+        comment_list.append(c)
+    for x in comment_list:
+        print(x.user.user_id)
     return render_template("Listing/item.html", data=DATA, info=INFO,
                            category=utility.parseCatLocation(INFO[0].category),
                            sub_category=utility.parseSubCatLocation(prod),
-                           account=session['username'])
+                           account=session['username'], comments=comment_list)
+
 
 # TODO()
 
@@ -63,13 +83,15 @@ def showReceipt(data):
         return redirect(url_for('login'))
     else:
         CART = database.getCart(user.user_id)
-        if len(CART)>0:
+        if len(CART) > 0:
             database.deleteCart(user.user_id)
             price = data.split(",")[0]
             size = data.split(",")[1]
             MOP = data.split(",")[2]
-            return render_template("receipt.html", address=user.address, firstname = user.firstname, lastname = user.lastname,
-                                   price = float(price), size = size, MOP = MOP)
+            address = data.split(",")[3]
+            return render_template("receipt.html", address=address, firstname=user.firstname,
+                                   lastname=user.lastname,
+                                   price=float(price), size=size, MOP=MOP)
         return redirect(url_for("home"))
 
 
@@ -97,6 +119,19 @@ def cart():
                                size=len(products))
 
 
+@app.route("/rate_product", methods=['POST'])
+def rateProduct():
+    user: utility.User = database.getAccountByEmail(session['username'])
+    prod_name = request.form['item_name']
+    rating: float = float(request.form['rating'])
+    comment = request.form['comment']
+    data = database.getProductByName(prod_name)
+
+    database.addRating(data[0]['PROD_ID'], comment, user.user_id, rating)
+    database.updateProductRating(data[0]['PROD_ID'], rating)
+    return redirect(url_for('purchases'))
+
+
 @app.route("/delete_cart_item/<prod_id>")
 def deleteCart(prod_id: str):
     user: utility.User = database.getAccountByEmail(session['username'])
@@ -114,11 +149,11 @@ def notification():
         return redirect(url_for('login'))
     else:
         Products = database.getPurchases(user.user_id)
-        productList:str = ""
+        productList: str = ""
         for P in Products:
             Prod = database.getProduct(P['PROD_ID'])
-            productList+=Prod.name+', '
-        return render_template("notif.html", account=session['username'], lst = productList)
+            productList += Prod.name + ', '
+        return render_template("notif.html", account=session['username'], lst=productList)
 
 
 @app.route("/history")
@@ -141,7 +176,8 @@ def history():
 
 @app.route("/reviews/<data>")
 def review(data):
-    return render_template("reviews.html", account=session['username'], name = data)
+    return render_template("reviews.html", account=session['username'], name=data)
+
 
 @app.route("/purchases")
 def purchases():

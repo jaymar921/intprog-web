@@ -13,7 +13,7 @@
     <body>
         <div class="top-nav">
             <div onclick="location.href='{{ url_for('home') }}'" style="cursor: pointer">
-              <img src="static/images/LandingPage/1a.png" class="logo">
+              <img src="{{ url_for('static',filename='images/LandingPage/1a.png') }}" class="logo">
             </div>
             <div style="margin-left: 100px; margin-right: 100px;">
               <form>
@@ -43,7 +43,7 @@
           <br>
 		   <div class="container1">
 		   <div class="uploadImage">
-                 <img src="static/images/cam.png" class="user">
+                 <img src="{{ url_for('static',filename='images/cam.png') }}" class="user">
                  <input type="file" name="uploadfile" id="img" style="display:none;"/>
                 <label for="img" >Select Image</label>
 
@@ -53,12 +53,12 @@
           </div>
 
 
-            <form action="#" method="get">
+            <form action="/rate_product" method="post">
 			<div class="formProfile">
                 <h3><b>{{ name }}</b></h3>
             <label for="user"><b><h3>Write Review</h3></b></label>
 			<div class="rating">
-                    <span class="fa fa-star checked" id="star1" onclick="rate(1)" style="cursor:pointer"></span>
+                    <span class="fa fa-star" id="star1" onclick="rate(1)" style="cursor:pointer"></span>
                     <span class="fa fa-star " id="star2" onclick="rate(2)"></span>
                     <span class="fa fa-star " id="star3" onclick="rate(3)"></span>
                     <span class="fa fa-star " id="star4" onclick="rate(4)"></span>
@@ -78,14 +78,19 @@
                                 document.getElementById('star'+i).style.color='grey';
                             }
                         }
+                        document.getElementById('ratings').value = parseInt(x);
+                        document.getElementById('prod_name').value = '{{name}}';
                     }
                 </script>
                   </div>
-            <p><input style= "border: 2px solid black" type="text" placeholder="Comment here..." name="user" required></p>
+                <input type="number" name="rating" value="0" id="ratings" hidden/>
+                <input type="text" name="item_name" value="{{ name }}" id="prod_name" hidden/>
+            <p><input style= "border: 2px solid black" type="text" placeholder="Comment here..." name="comment" required></p>
 			</div><br><br>
 			<div class="comment">
-			<button class="button">Submit</button>
-			<button class="button">Cancel</button>
+                <button class="button" type="submit">Submit</button>
+                <button class="button">Cancel</button>
+            </div>
 			</form>
 
 

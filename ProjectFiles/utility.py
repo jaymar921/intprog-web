@@ -29,6 +29,12 @@ class User:
     address = "615 V. Abad Tormis Ext., Sambag II, Urgello, Cebu City 6000, Philippines"
 
 
+class Comment:
+    user: User
+    comment: str
+    rating: float
+
+
 def parseCatLocation(category: str):
     if category == 'Bath':
         return 'bath'

@@ -50,6 +50,24 @@ def getAccountByEmail(email: str):
     return None
 
 
+def getAccountById(id_: str):
+    sql: str = f"SELECT * FROM `users` WHERE `id`='{id_}'"
+    db = Database()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(sql)
+    DATA: list = cursor.fetchall()
+    db.close()
+    if len(DATA) > 0:
+        user: utility.User = utility.User
+        user.user_id = DATA[0]['id']
+        user.lastname = DATA[0]['lastname']
+        user.firstname = DATA[0]['firstname']
+        user.email = DATA[0]['email']
+        user.contact = DATA[0]['contact']
+        return user
+    return None
+
+
 def hashString(string: str) -> str:
     data: str = hashlib.md5(string.encode()).hexdigest()
     return str(data)[0:32]
@@ -81,6 +99,48 @@ def getProductInfo(prod_id: int):
 
 def getProductBySearch(search: str):
     sql: str = f"SELECT * FROM `product` where prod_name like '%{search}%'"
+    db = Database()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(sql)
+    DATA: list = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return DATA
+
+
+def updateProductRating(prod_id: int, rating: float):
+    sql: str = f"UPDATE `product_info` SET rating={rating},BUY_RATE=BUY_RATE+1 WHERE PRODUCT_ID={prod_id}"
+    db = Database()
+    cursor = db.cursor()
+    cursor.execute(sql)
+    db.commit()
+    cursor.close()
+    db.close()
+
+
+def addRating(prod_id: int, comment: str, user_id: int, rating: float):
+    sql: str = f"INSERT INTO COMMENT(PROD_ID,COMMENT,CUSTOMER_ID,RATING) values (%s,%s,%s,%s)"
+    db = Database()
+    cursor = db.cursor()
+    cursor.execute(sql, (prod_id, comment, user_id, rating))
+    db.commit()
+    cursor.close()
+    db.close()
+
+
+def getComment(prod_id: int):
+    sql: str = f"SELECT * FROM COMMENT where PROD_ID={prod_id}"
+    db = Database()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(sql)
+    DATA: list = cursor.fetchall()
+    cursor.close()
+    db.close()
+    return DATA
+
+
+def getProductByName(search: str):
+    sql: str = f"SELECT * FROM `product` where prod_name='{search}'"
     db = Database()
     cursor = db.cursor(dictionary=True)
     cursor.execute(sql)

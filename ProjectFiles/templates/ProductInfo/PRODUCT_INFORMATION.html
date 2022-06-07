@@ -86,8 +86,8 @@
                       ₱{{ data[x].price }}
                       </div>
                       <div class="rating">
-                        {% for i in range(5) %}
-                            {% if i < info[x].rating %}
+                        {% for i in range(0,5) %}
+                            {% if info[x].rating > i  %}
                               <span class="fa fa-star checked"></span>
                             {% else %}
                               <span class="fa fa-star"></span>
@@ -113,7 +113,7 @@
             <div class="other-content w3-card-2" onclick="location.href='{{ url_for('bathrobes') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Bathrobes/bathrobe1.jpg">
+                <img src = "{{ url_for('static',filename='images/bath/Bathrobes/bathrobe1.jpg') }}">
               </div>
               <div class="other-content-name">
                 <p>Bathrobes</p>
@@ -124,7 +124,7 @@
             <div class="other-content w3-card-2" onclick="location.href='{{ url_for('bathmirrors') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Bathroom Mirrors/bathroom_mirror1.jpg">
+                <img src = "{{ url_for('static',filename='images/bath/Bathroom Mirrors/bathroom_mirror1.jpg') }}">
               </div>
               <div class="other-content-name">
                 <p>Bathroom Mirrors</p>
@@ -135,7 +135,7 @@
             <div class="other-content w3-card-2" onclick="location.href='{{ url_for('linentowers') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Linen Towers & Cabinets/linens_cabinet1.jpg">
+                <img src = "{{ url_for('static',filename='images/bath/Linen Towers & Cabinets/linens_cabinet1.jpg') }}">
               </div>
               <div class="other-content-name">
                 <p>Linen Towers & Cabinets</p>
@@ -146,7 +146,7 @@
             <div class="other-content w3-card-2" onclick="location.href='{{ url_for('towel') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Towels/towel1.jpg">
+                <img src = "{{ url_for('static',filename='images/bath/Towels/towel1.jpg') }}">
               </div>
               <div class="other-content-name">
                 <p>Towel</p>
@@ -157,7 +157,7 @@
             <div class="other-content w3-card-2" onclick="location.href='{{ url_for('towelrails') }}' ;"
                     style="cursor: pointer;">
               <div class="other-content-pic">
-                <img src = "static/images/bath/Towel Rails & Warmers/towel_rail1.jpg">
+                <img src = "{{ url_for('static',filename='images/bath/Towel Rails & Warmers/towel_rail1.jpg') }}">
               </div>
               <div class="other-content-name">
                 <p>Towel Rails & Warmers</p>

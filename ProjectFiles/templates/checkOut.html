@@ -96,7 +96,7 @@
     <!--leave as it is for aesthetic purposes onle hehe-->
     <tr>
       <td style="border-bottom: 2px dashed #aeaeaa">Shipping Address: </td>
-      <td style="border-bottom: 2px dashed #aeaeaa"><input type="text" placeholder="Address" class="note" size="60" value="{{ address }}"></input></td>
+      <td style="border-bottom: 2px dashed #aeaeaa"><input type="text" id="address" name="address" placeholder="Address" class="note" size="60" value="{{ address }}"></input></td>
       <td style="border-bottom: 2px dashed #aeaeaa"></td>
       <td style="border-bottom: 2px dashed #aeaeaa"></td>
       <td style="border-bottom: 2px dashed #aeaeaa"></td>
@@ -181,7 +181,8 @@
         <script type="text/javascript">
            function get_MOP() {
             var MOP = document.getElementById('payment').value
-            location.href='/receipt/{{total+125}},{{size}},'+MOP
+            var ADDR = document.getElementById('address').value
+            location.href='/receipt/{{total+125}},{{size}},'+MOP+','+ADDR
            }
         </script>
       </tr>
