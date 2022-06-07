@@ -197,6 +197,14 @@ li a.active {
     margin-bottom: 40px;
     display: block;
     margin: 20px;
+    transition: transform .2s;
+}
+
+.category-content:hover{
+    -ms-transform: scale(1.02); /* IE 9 */
+    -webkit-transform: scale(1.02); /* Safari 3-8 */
+    transform: scale(1.02);
+    border: 2px solid #C4C4C4;
 }
 
 .category-content-pic {
